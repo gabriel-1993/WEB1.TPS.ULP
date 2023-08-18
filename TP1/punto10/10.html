@@ -5,5 +5,105 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TP 1 -10</title>
   </head>
-  <body></body>
+  <body>
+    <p>Una tabla con 3 filas y 3 columnas.</p>
+    <table style="border: 1px solid black; border-collapse: collapse">
+      <tr>
+        <th style="border: 1px solid black; border-collapse: collapse">A</th>
+        <th style="border: 1px solid black; border-collapse: collapse">B</th>
+        <th style="border: 1px solid black; border-collapse: collapse">C</th>
+      </tr>
+
+      <tr>
+        <td style="border: 1px solid black; border-collapse: collapse">1</td>
+        <td style="border: 1px solid black; border-collapse: collapse">2</td>
+        <td style="border: 1px solid black; border-collapse: collapse">3</td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid black; border-collapse: collapse">1</td>
+        <td style="border: 1px solid black; border-collapse: collapse">2</td>
+        <td style="border: 1px solid black; border-collapse: collapse">3</td>
+      </tr>
+    </table>
+    <p>Una tabla con 2 filas y 4 columnas.</p>
+    <table style="border: 1px solid black; border-collapse: collapse">
+      <thead>
+        <tr>
+          <th style="border: 1px solid black; border-collapse: collapse">A</th>
+          <th style="border: 1px solid black; border-collapse: collapse">B</th>
+          <th style="border: 1px solid black; border-collapse: collapse">C</th>
+          <th style="border: 1px solid black; border-collapse: collapse">D</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="border: 1px solid black; border-collapse: collapse">1</td>
+          <td style="border: 1px solid black; border-collapse: collapse">2</td>
+          <td style="border: 1px solid black; border-collapse: collapse">3</td>
+          <td style="border: 1px solid black; border-collapse: collapse">4</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      Una tabla con 3 filas, donde la primera fila tenga solo una celda y las
+      otras dos filas tengan 3 celdas.
+    </p>
+    <table style="border: 1px solid black; border-collapse: collapse">
+      <thead>
+        <tr>
+          <th
+            colspan="3"
+            style="border: 1px solid black; border-collapse: collapse"
+          >
+            A
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="border: 1px solid black; border-collapse: collapse">1</td>
+          <td style="border: 1px solid black; border-collapse: collapse">2</td>
+          <td style="border: 1px solid black; border-collapse: collapse">3</td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid black; border-collapse: collapse">1</td>
+          <td style="border: 1px solid black; border-collapse: collapse">2</td>
+          <td style="border: 1px solid black; border-collapse: collapse">3</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      Una tabla con 3 columnas, donde la primera columna tiene 2 celdas, la
+      segunda columna 1 celda y la tercera columna 3 celdas (filas).
+    </p>
+    <table style="border: 1px solid black; border-collapse: collapse">
+      <tbody>
+        <tr>
+          <td style="border: 1px solid black; border-collapse: collapse">A</td>
+
+          <td
+            rowspan="3"
+            style="border: 1px solid black; border-collapse: collapse"
+          >
+            C
+          </td>
+
+          <td style="border: 1px solid black; border-collapse: collapse">D</td>
+        </tr>
+
+        <tr>
+          <td
+            rowspan="3"
+            style="border: 1px solid black; border-collapse: collapse"
+          >
+            B
+          </td>
+          <td style="border: 1px solid black; border-collapse: collapse">E</td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid black; border-collapse: collapse">F</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
 </html>
