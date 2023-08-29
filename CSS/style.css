@@ -3,7 +3,6 @@
     margin: 0;
     box-sizing: border-box;
     text-decoration: none;
-    list-style: none;
 }
 
 /* 1.- Escribir una regla para que el texto de los elementos h1 y h3 sea rojo. Ingrese algún
@@ -73,7 +72,7 @@ definido con un imagen a una lista sin orden (ul):
 https://www.w3schools.com/cssref/pr_list-style-image.asp */
 
  ul {
-    padding: revert;
+    padding: revert ;
     list-style-image: url('search.png');
 } 
 
