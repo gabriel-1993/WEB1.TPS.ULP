@@ -1,0 +1,120 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+/* 1.- Escribir una regla para que el texto de los elementos h1 y h3 sea rojo. Ingrese algún
+texto y pruebe en su navegador. */
+h1,
+h2 {
+    color: red;
+}
+
+/* 2.- Escribir una regla para que todos los elementos de la página aparezcan en verde.
+Ingrese algún texto y pruebe en su navegador. */
+* {
+    color: green;
+}
+
+/* 3.- Escribir una regla que defina un fondo amarillo a los elementos h1 y p. Ingrese algún
+texto y pruebe en su navegador. */
+
+.div3 h1,
+p {
+    background-color: yellow;
+}
+
+/* 4.- Definir un CSS externo que establezca un color para los encabezados (H1 hasta H6) */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: rgb(52, 87, 241);
+    font-size: 1.4rem;
+}
+
+/* 5.- Definir una CSS donde establezca que el tipo de letra es Verdana y tamaño 8 en los
+párrafos. Definir dos páginas que utilicen esa hoja de estilo de las cuales una debe redefinir
+el tamaño de letra a 10. */
+.pVerdana {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 8px;
+}
+
+.p10 {
+    font-size: 10px;
+}
+
+/* PUNTO 6 EN EL stylepunto6.css */
+
+/* 7.- Definir un estilo que permita diseñar una página en la que tenemos un título y un párrafo.
+En concreto, presentar el texto en color rojo para el título, y naranja para el párrafo.
+Además, el párrafo tiene el texto justificado y un interlineado grueso. También, le daremos al
+título un tipo de letra arial y le cambiaremos el tamaño. */
+.h2p7 {
+    font-size: 2rem;
+    color: red;
+}
+
+.pP7 {
+    color: orange;
+    text-align: justify;
+    line-height: 1.9;
+    background-color: white;
+}
+
+/* 8.- A través del atributo list-style-image, defina un regla de estilo para asociar un icono
+definido con un imagen a una lista sin orden (ul):
+https://www.w3schools.com/cssref/pr_list-style-image.asp */
+
+ul {
+    list-style-image: url("buscar.png");
+}
+
+/*9  Definir un estilo para aplicar a tablas. Se piden diferentes valores para el estilo del borde;
+en concreto, se tiene doble trazo para el borde de la tabla, uno sólido para los encabezados
+y otro de bajo relieve para las celdas normales. También se solicita un color de fondo
+diferente para cada elemento: los encabezados con un azul verdoso, las celdas con naranja
+y la tabla con gris.
+Por otro lado se necesita un espacio entre el borde de la tabla y las celdas mediante la
+declaración border-spacing:12px; ubicada en el selector table. Esta declaración la
+heredarán las celdas también. Por último la declaración padding:4px; en el selector td para
+dejar un margen entre el borde de las celdas y su contenido. */
+
+/*asigno tambien las celdas para que aplique el border spacing*/
+.table9,
+td {
+    border: solid 2px black;
+    border-style: double;
+    background-color: gray;
+    border-spacing: 12px;
+}
+
+th {
+    border: solid 2px white;
+    background-color: #009FA8;
+}
+
+td {
+    border-style: inset;
+    background-color: orange;
+    color: white;
+    font-weight: 600;
+    padding: 4px;
+
+}
+
+/* 10.- Realice un estilo que permita cambiar el aspecto de la primera letra de un párrafo.
+Utilice clases para poder separar los párrafos a los que no queremos que se le aplique el
+estilo. */
+
+.pPrimerletra::first-letter {
+  /* Estilos para la primera letra del párrafo */
+  color: black;
+  font-size: 2em;
+}

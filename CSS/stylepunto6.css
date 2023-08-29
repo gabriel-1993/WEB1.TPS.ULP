@@ -1,0 +1,17 @@
+/* 6.- Definir un estilo para todo un sitio el cual debe establecer:
+- Color de encabezado h1 azul
+- Color de encabezado h2 verde
+- Tipo de letra de los párrafos p Arial Black
+Realice dos páginas que verifiquen la correcta configuración del estilo definido. */
+
+* {
+    font-family: "Arial Black", sans-serif;
+  }
+  
+  h1 {
+    color: blue;
+  }
+  
+  h2 {
+    color: green;
+  }
