@@ -2,8 +2,8 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    list-style: none;
     text-decoration: none;
+    list-style: none;
 }
 
 /* 1.- Escribir una regla para que el texto de los elementos h1 y h3 sea rojo. Ingrese algún
@@ -72,9 +72,10 @@ título un tipo de letra arial y le cambiaremos el tamaño. */
 definido con un imagen a una lista sin orden (ul):
 https://www.w3schools.com/cssref/pr_list-style-image.asp */
 
-ul {
-    list-style-image: url("buscar.png");
-}
+ ul {
+    padding: revert;
+    list-style-image: url('search.png');
+} 
 
 /*9  Definir un estilo para aplicar a tablas. Se piden diferentes valores para el estilo del borde;
 en concreto, se tiene doble trazo para el borde de la tabla, uno sólido para los encabezados
