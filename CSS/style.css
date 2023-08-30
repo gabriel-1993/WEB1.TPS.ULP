@@ -118,3 +118,97 @@ estilo. */
   color: black;
   font-size: 2em;
 }
+
+.divMedio{
+    width: 100%;
+    border: 4px solid blue;
+    margin: 100px 0;
+}
+/* PARTE B EJ 1 */
+.mayor{
+    font-size: 80%;
+}
+.menor{ font-size: 40%;}
+
+/* ejercicio 2 */
+
+.div3img{
+    display:flex;
+    justify-content: center;
+    border: solid blue 1px;
+    width: auto;
+    gap: 3px;
+    flex-wrap: wrap;
+}
+.img{
+    background-image: url(./pizza.jpg);
+    background-position: center;
+    background-size: cover;
+    width: 180px;
+    height: 120px;
+}
+
+/* ejercicio 3 */
+
+.imgFija{
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    height: 50px;
+}
+
+/* ejercicio 4  */
+.blancos{
+    color: yellow;
+    background-color: black;
+    font-weight: 900;
+}
+
+.tintos{
+    background-color: black;
+    color: red;
+    font-weight: 900;
+}
+
+.merlot{
+    color: green;
+}
+
+
+/* ejercicio 6 */
+.divContenedor{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    border: solid 1px black;
+    width: 395px;
+    background-color: gray;
+    padding: 10px;
+}
+.divContenedor p{
+    color:deepskyblue;
+    background-color: gray;
+    font-weight: 800;
+    border-bottom: solid 1px deepskyblue;
+    padding-bottom: 4px;
+}
+.divContenedor div{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.divContenedor span{
+    color: rgba(0, 0, 0, 0.507);
+    font-size: 10px;
+    display: block;
+    font-weight: 100;
+}
+.spanWidth{
+    width: 110px;
+}
+
+.img6Arriba, .img6Abajo{
+    height: 20px;
+    width: 90px;
+    border-radius: 2px;
+}
