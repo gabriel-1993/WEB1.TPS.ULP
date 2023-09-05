@@ -1,4 +1,4 @@
-*{
+* {
     padding: 0;
     margin: 0;
     list-style: none;
@@ -6,86 +6,189 @@
     box-sizing: border-box;
 }
 
-header{
+:root {
+    --color-amarillo: rgb(250, 229, 43);
+    --letra-titulos: font-family: monospace;
+    --letra-parrafos: font-family: 'Courier New', Courier, monospace;
+}
+
+header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 65px;
-    background-image: linear-gradient(to bottom,rgba(128, 128, 128, 0.493), rgb(153, 151, 151));
+    background-color: var(--color-amarillo);
 }
 
-ul{
+ul {
     display: flex;
     gap: 20px;
     padding-right: 50px;
 }
 
-ul li{
+ul li {
     color: rgb(17, 5, 46);
     font-size: 1rem;
     font-family: 'Courier New', Courier, monospace;
     cursor: pointer;
-    font-weight: 700;
+    font-weight: 600;
 }
-ul li:hover{
+
+ul li:hover {
     color: white;
 }
 
-#portada{
+/* SECTION PORTADA */
+#Portada {
+    /* Modificacion para poder desplazar la card al cargar la web */
+    position: relative;
+    overflow: hidden;
+    /* ----- continuo efecto en animaciones.css ------- */
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: rgba(128, 128, 128, 0.493);
     width: 100%;
+    height: calc(100vh - 65px);
+}
+
+/* Contenedor del div con img JS y div texto */
+.divContenedorPortada {
+    margin: 30px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    box-shadow: 10px 10px 20px;
+}
+
+/* CARD QUE HABLA SOBRE JS */
+.divTexto {
+    display: flex;
+    gap: 50px;
+    width: 720px;
+    padding: 25px;
+    background-color: rgb(100, 99, 99);
+    border: solid 3px var(--color-amarillo);
+    border-right: 0;
+
+}
+
+/* lado izquierdo titulos y parrafo */
+.textLeft {
+    width: 50%;
+}
+
+.textLeft h1,
+.textLeft h2 {
+    color: var(--color-amarillo);
+    font-size: 2rem;
+    font-family: monospace;
+}
+
+.textLeft h2 {
+    border-bottom: solid var(--color-amarillo) 2px;
+    padding-bottom: 14px;
+    margin-bottom: 20px;
+}
+
+/* mismos colores y tamaños para izq y der */
+.textLeft p,
+.textRight ol {
+    color: rgb(197, 196, 196);
+    font-size: 1rem;
+    line-height: 1.2rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+
+}
+
+/* lado derecho titulos y parrafo */
+.textRight {
+    width: 50%;
+}
+
+.textRight h3,
+.textRight h4 {
+    color: var(--color-amarillo);
+    font-size: 1.54rem;
+    font-family: monospace;
+}
+
+.textRight h4 {
+    border-bottom: solid var(--color-amarillo) 2px;
+    margin-bottom: 20px;
+}
+
+/* paddin para ubicar los list style dentro del subrayado superior */
+.textRight ol {
+    padding: 0 15px;
+}
+
+.textRight ol li {
+    list-style: disc;
+}
+
+.divImg {
+    width: 400px;
+    height: 434px;
+    background-image: url(./jsPortada.png);
+    background-size: cover;
+    border: solid 3px var(--color-amarillo);
+    border-left: 0;
 }
 
 /* ---------------------------------------     CARROUSEL     -------------------------------------*/
 
-.carrousel{
-width: 80%;
-height: 80vh;
-/* para monitores grandes */
-max-width: 120em;
-background-color: lightskyblue;
+.carrousel {
+    width: 80%;
+    /* para monitores grandes */
+    max-width: 120em;
+    background-color: lightskyblue;
 }
 
-.carrousel .grande{
+.carrousel .grande {
     width: 1000%;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
     background-color: orange;
-    transition: all .5s ease ;
-    transform: translateX(0%) ;
+    transition: all .5s ease;
+    transform: translateX(0%);
 }
 
-.carrousel .img{
-width: calc(100% /10 );
-min-height: 80vh;
-max-height: 90vh;
-background-color: lime;
+.carrousel .img {
+    width: calc(100% /10);
+    min-height: 80vh;
+    max-height: 90vh;
+    background-color: lime;
 }
-.img2{
+
+.img2 {
     height: 90vh;
     width: 10%;
 }
 
-.carrousel .puntos{
+.carrousel .puntos {
+
     width: 100%;
-    margin-top: 10px;
-    background-color: red;
+    background-color: rgba(128, 128, 128, 0.493);
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
+    padding: 10px 0;
 }
 
-.carrousel .punto{
-width: 2em;
-height: 2em;
-background-color: blue;
+.carrousel .punto {
+    width: 1.3em;
+    height: 1.3em;
+    border-radius: 50%;
+    background-image: linear-gradient(to bottom, rgba(128, 128, 128, 0.493), rgb(153, 151, 151));
 }
 
-.carrousel .punto.activo{
-background-color: black;}
+.carrousel .punto.activo {
+    background-color: black;
+}

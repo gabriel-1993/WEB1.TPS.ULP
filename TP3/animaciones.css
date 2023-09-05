@@ -1,0 +1,41 @@
+/*EN STYLE.CSS prepare la section Portada: 
+SECTION PORTADA 
+#Portada {
+    Modificacion para poder desplazar la card al cargar la web 
+    position: relative;
+    overflow: hidden;
+    ----- continuo efecto en animaciones.css -----*/
+
+.divTexto {
+    position: absolute;
+    animation: slideRight 2s linear ;
+    /* Animación de 4 segundos, se repite infinitamente */
+}
+
+@keyframes slideRight {
+    0% {
+        transform: translateX(-150%);
+    }
+
+    100% {
+        transform: translateX(0);
+        /* Desplazamiento completo a la derecha */
+    }
+}
+/* DESPLAZAMIENTO PARA IMG JS PORTADA */
+.divImg{
+    position: absolute;
+    animation: slideTop 4s linear ;
+    /* Animación de 4 segundos, se repite infinitamente */
+}
+
+@keyframes slideTop {
+    0% {
+        transform: translateY(-150%);
+    }
+
+    100% {
+        transform: translateY(0);
+        /* Desplazamiento completo a la derecha */
+    }
+}
