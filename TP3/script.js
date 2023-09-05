@@ -18,7 +18,7 @@ const punto = document.querySelectorAll('.punto')
             //si...posicion es 0 transform es 0
             //si...posicion es 1 transform es -50%
             //operacion =posicion * -50
-            let operacion = posicion * -10
+            let operacion = posicion * -11.2
             //Movemos el div .grande
             grande.style.transform = `translateX(${operacion}%)` 
 

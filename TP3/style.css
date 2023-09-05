@@ -8,8 +8,12 @@
 
 :root {
     --color-amarillo: rgb(250, 229, 43);
-    --letra-titulos: font-family: monospace;
-    --letra-parrafos: font-family: 'Courier New', Courier, monospace;
+    --color-fondoClaro: rgba(128, 128, 128, 0.493);
+    --color-parrafosGrisClaro: rgb(197, 196, 196);
+    --color-fondoGrisOscuro: rgb(100, 99, 99);
+
+    --letra-titulos: monospace;
+    --letra-parrafos: 'Courier New', Courier, monospace;
 }
 
 header {
@@ -48,7 +52,7 @@ ul li:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(128, 128, 128, 0.493);
+    background-color: var(--color-fondoClaro);
     width: 100%;
     height: calc(100vh - 65px);
 }
@@ -60,7 +64,6 @@ ul li:hover {
     justify-content: center;
     align-items: center;
     border-radius: 3px;
-    box-shadow: 10px 10px 20px;
 }
 
 /* CARD QUE HABLA SOBRE JS */
@@ -68,10 +71,15 @@ ul li:hover {
     display: flex;
     gap: 50px;
     width: 720px;
-    padding: 25px;
+    padding: 24px;
     background-color: rgb(100, 99, 99);
-    border: solid 3px var(--color-amarillo);
+    border: solid 4px var(--color-amarillo);
     border-right: 0;
+    border-radius: 3px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: 20px 10px 15px;
+
 
 }
 
@@ -84,7 +92,7 @@ ul li:hover {
 .textLeft h2 {
     color: var(--color-amarillo);
     font-size: 2rem;
-    font-family: monospace;
+    font-family: var(--letra-titulos);
 }
 
 .textLeft h2 {
@@ -96,7 +104,7 @@ ul li:hover {
 /* mismos colores y tamaños para izq y der */
 .textLeft p,
 .textRight ol {
-    color: rgb(197, 196, 196);
+    color: var(--color-parrafosGrisClaro);
     font-size: 1rem;
     line-height: 1.2rem;
     font-family: 'Courier New', Courier, monospace;
@@ -135,32 +143,78 @@ ul li:hover {
     height: 434px;
     background-image: url(./jsPortada.png);
     background-size: cover;
-    border: solid 3px var(--color-amarillo);
+    background-position: center;
+    border: solid 4px var(--color-amarillo);
     border-left: 0;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    box-shadow: 10px 10px 15px;
+
 }
 
-/* ---------------------------------------     CARROUSEL     -------------------------------------*/
+/* ---------------------------------------   SECTION  CARROUSEL     -------------------------------------*/
+#Carrousel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-fondoClaro);
+    padding-top: 100px;
+}
 
+/*DIV Y TIT:
+EJEMPLOS REALIZADOS EN JAVASCRIPT
+Algunos de los mencionados anteriormente */
+.divTitulos {
+    padding: 15px 70px;
+    border-radius: 4px;
+    background-color: rgb(100, 99, 99);
+    text-align: center;
+    box-shadow: 10px 10px 15px;
+
+}
+
+#Carrousel h1 {
+    font-family: var(--letra-titulos);
+    color: var(--color-amarillo);
+    font-size: 1.5rem;
+    margin-bottom: 2px;
+}
+
+#Carrousel h2 {
+    font-family: var(--letra-parrafos);
+    font-size: 1.2rem;
+    color: var(--color-parrafosGrisClaro);
+}
+
+/*div contenedor del carrousel*/
 .carrousel {
+    margin-top: 100px;
+    margin-bottom: 100px;
     width: 80%;
     /* para monitores grandes */
     max-width: 120em;
+    overflow-x: hidden;
     background-color: lightskyblue;
+    border-radius: 4px;
+    box-shadow: 10px 10px 15px;
+
+
 }
+
 
 .carrousel .grande {
     width: 1000%;
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-between;
     align-items: center;
-    background-color: orange;
+    gap: 50px;
     transition: all .5s ease;
     transform: translateX(0%);
 }
 
 .carrousel .img {
-    width: calc(100% /10);
+    width: calc(100% /9);
     min-height: 80vh;
     max-height: 90vh;
     background-color: lime;
@@ -168,13 +222,13 @@ ul li:hover {
 
 .img2 {
     height: 90vh;
-    width: 10%;
+    width: calc(100% /9);
 }
 
 .carrousel .puntos {
 
     width: 100%;
-    background-color: rgba(128, 128, 128, 0.493);
+    background-color: var(--color-fondoGrisOscuro);
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
@@ -190,5 +244,7 @@ ul li:hover {
 }
 
 .carrousel .punto.activo {
-    background-color: black;
+    background-color: var(--color-amarillo);
+    background-image: none;
+
 }
