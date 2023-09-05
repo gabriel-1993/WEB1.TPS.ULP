@@ -1,0 +1,91 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 65px;
+    background-image: linear-gradient(to bottom,rgba(128, 128, 128, 0.493), rgb(153, 151, 151));
+}
+
+ul{
+    display: flex;
+    gap: 20px;
+    padding-right: 50px;
+}
+
+ul li{
+    color: rgb(17, 5, 46);
+    font-size: 1rem;
+    font-family: 'Courier New', Courier, monospace;
+    cursor: pointer;
+    font-weight: 700;
+}
+ul li:hover{
+    color: white;
+}
+
+#portada{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(128, 128, 128, 0.493);
+    width: 100%;
+}
+
+/* ---------------------------------------     CARROUSEL     -------------------------------------*/
+
+.carrousel{
+width: 80%;
+height: 80vh;
+/* para monitores grandes */
+max-width: 120em;
+background-color: lightskyblue;
+}
+
+.carrousel .grande{
+    width: 1000%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: orange;
+    transition: all .5s ease ;
+    transform: translateX(0%) ;
+}
+
+.carrousel .img{
+width: calc(100% /10 );
+min-height: 80vh;
+max-height: 90vh;
+background-color: lime;
+}
+.img2{
+    height: 90vh;
+    width: 10%;
+}
+
+.carrousel .puntos{
+    width: 100%;
+    margin-top: 10px;
+    background-color: red;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.carrousel .punto{
+width: 2em;
+height: 2em;
+background-color: blue;
+}
+
+.carrousel .punto.activo{
+background-color: black;}
