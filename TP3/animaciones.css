@@ -9,7 +9,7 @@
 
 .divTexto {
     position: relative;
-    animation: slideRight 1.5s normal;
+    animation: slideRight 1.5s ease;
 }
 
 @keyframes slideRight {
@@ -25,7 +25,7 @@
 /* DESPLAZAMIENTO PARA IMG JS PORTADA */
 .divImg{
     position: relative;
-    animation: slideTop 1.4s alternate ;
+    animation: slideTop 1.4s ease-in-out;
 }
 
 @keyframes slideTop {
@@ -41,7 +41,7 @@
 
 .textRight{
     position: relative;
-    animation: slideRight 2s alternate ;
+    animation: slideRight 1.5s ease-in-out ;
 }
 
 /* -----------------------    FIN PORTADA   ------------------------ */
