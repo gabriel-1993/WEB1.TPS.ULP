@@ -4,6 +4,8 @@
     list-style: none;
     text-decoration: none;
     box-sizing: border-box;
+    /* scroll mas lento */
+    scroll-behavior: smooth;
 }
 
 :root {
@@ -160,12 +162,12 @@ ul li:hover {
 /* ---------------------------------------   SECTION  CARROUSEL     -------------------------------------*/
 /* APLICO A TODOS LOS SECTION PARA CADA EJEMPLO */
 section {
+    padding-top: 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: var(--color-fondoClaro);
-    padding-top: 100px;
 }
 
 /*DIV Y TIT:
