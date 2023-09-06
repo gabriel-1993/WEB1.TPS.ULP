@@ -42,8 +42,17 @@ ul li:hover {
     color: white;
 }
 
-/* SECTION PORTADA */
+
+
+
+
+/* --------------------------------------------     SECTION PORTADA   -----------------------------------*/
+
+
+
+
 #Portada {
+    padding-top: 0;
     /* Modificacion para poder desplazar la card al cargar la web */
     position: relative;
     overflow: hidden;
@@ -59,7 +68,6 @@ ul li:hover {
 
 /* Contenedor del div con img JS y div texto */
 .divContenedorPortada {
-    margin: 30px 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -79,8 +87,6 @@ ul li:hover {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     box-shadow: 20px 10px 15px;
-
-
 }
 
 /* lado izquierdo titulos y parrafo */
@@ -109,7 +115,6 @@ ul li:hover {
     line-height: 1.2rem;
     font-family: 'Courier New', Courier, monospace;
     font-weight: 600;
-
 }
 
 /* lado derecho titulos y parrafo */
@@ -149,11 +154,11 @@ ul li:hover {
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
     box-shadow: 10px 10px 15px;
-
 }
 
 /* ---------------------------------------   SECTION  CARROUSEL     -------------------------------------*/
-#Carrousel {
+/* APLICO A TODOS LOS SECTION PARA CADA EJEMPLO */
+section {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -171,7 +176,7 @@ Algunos de los mencionados anteriormente */
     background-color: rgb(100, 99, 99);
     text-align: center;
     box-shadow: 10px 10px 15px;
-
+    margin-bottom: 40px;
 }
 
 #Carrousel h1 {
@@ -187,10 +192,24 @@ Algunos de los mencionados anteriormente */
     color: var(--color-parrafosGrisClaro);
 }
 
+.divTituloEjemplos {
+    padding: 10px 20px;
+    border-radius: 4px;
+    background-color: rgb(100, 99, 99);
+    box-shadow: 10px 10px 15px;
+    text-align: start;
+    line-height: 1.3rem;
+    margin-bottom: 50px;
+}
+/* ESTILO PARA EL TITULO DE CADA EJEMPLO: CARROUSEL, FORM, ANIMACION JS,etc */
+.divTituloEjemplos h2 {
+    font-family: var(--letra-parrafos);
+    font-size: 1.2rem;
+    color: var(--color-parrafosGrisClaro);
+}
+
 /*div contenedor del carrousel*/
 .carrousel {
-    margin-top: 100px;
-    margin-bottom: 100px;
     width: 80%;
     /* para monitores grandes */
     max-width: 120em;
@@ -198,10 +217,7 @@ Algunos de los mencionados anteriormente */
     background-color: lightskyblue;
     border-radius: 4px;
     box-shadow: 10px 10px 15px;
-
-
 }
-
 
 .carrousel .grande {
     width: 1000%;
@@ -215,13 +231,13 @@ Algunos de los mencionados anteriormente */
 
 .carrousel .img {
     width: calc(100% /9);
-    min-height: 80vh;
-    max-height: 90vh;
+    min-height: 75vh;
+    max-height: 85vh;
     background-color: lime;
 }
 
 .img2 {
-    height: 90vh;
+    height: 85vh;
     width: calc(100% /9);
 }
 
@@ -248,3 +264,9 @@ Algunos de los mencionados anteriormente */
     background-image: none;
 
 }
+
+/* ------------------------------------     SECCION FORMULARIO    -------------------------------*/
+/* APLICO A TODOS LOS SECTION PARA CADA EJEMPLO */
+/* SECTION FORMULARIO ESTILADO: AL COMIENDO DE LOS ESTILOS DE CARROUSEL */
+/* TITULO Validar datos en formulario ESTILADO EN CARROUSEL */
+

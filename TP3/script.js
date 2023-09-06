@@ -1,12 +1,12 @@
 const grande = document.querySelector('.grande')
 const punto = document.querySelectorAll('.punto')
 
-//CLICK en Punto    
-    //CAPTURAR posicion de ese punto
-    //APLICAR transform traslate al div grande
-    //QUITAR la clase activo a punto
-    //AÑADIR clase activo al punto seleccionado
+//CARROUSEL -------------------------------------------------------------------------------------------   
     
+//CAPTURAR posicion de punto
+//APLICAR transform traslate al div grande
+//QUITAR la clase activo a punto
+//AÑADIR clase activo al punto seleccionado
 
     //Recorrer todos los puntos
     punto.forEach( (cadaPunto, i)=>{
@@ -15,9 +15,6 @@ const punto = document.querySelectorAll('.punto')
             //guardar la posicion de dicho punto
             let posicion = i
             //Calculo de espacio que debe desplazarse 
-            //si...posicion es 0 transform es 0
-            //si...posicion es 1 transform es -50%
-            //operacion =posicion * -50
             let operacion = posicion * -11.2
             //Movemos el div .grande
             grande.style.transform = `translateX(${operacion}%)` 
@@ -31,3 +28,7 @@ const punto = document.querySelectorAll('.punto')
             punto[i].classList.add('activo')
         })
     } )
+
+    // VALIDAR FORMULARIO   -----------------------------------------------------------------------------
+
+    
