@@ -160,25 +160,23 @@ function ejercicio5() {
     let contador = 0;
     let msj = "";
     respuesta = prompt("Vamos a adivinar un numero!, ingrese un numero entre 0 y 10 ");
-    console.log(numAleatorio);
-    do {
+    // Agregamos una comprobación para manejar el caso en que el usuario cancele el prompt.
+    while (respuesta !== null) { 
         respuesta = parseInt(respuesta);
         contador++;
-        if (contador > 0 && respuesta !== numAleatorio) {
-            respuesta = prompt(msj);
-        } else
-            if (respuesta === numAleatorio) {
-                p5.innerHTML = " 🎇🎆🥳 ¡ ADIVINASTE !😅😅 .Intentos: " + contador;
-                p5.style.display = "block";
-                p5.style.color = "yellow";
-            } else
-                if (respuesta > numAleatorio) {
-                    msj = " Ingrese uno num mas chico...";
-                } else
-                    if (respuesta < numAleatorio) {
-                        msj = " Ingrese uno num mas grande...";
-                    }
-    } while (respuesta !== numAleatorio)
+        if (respuesta === numAleatorio) {
+            p5.innerHTML = "🎇🎆🥳 ¡ADIVINASTE! 😅😅. Intentos: " + contador;
+            p5.style.display = "block";
+            p5.style.color = "yellow";
+            // Salimos del bucle 
+            break; 
+        } else if (respuesta > numAleatorio) {
+            msj = "Ingrese un número más chico...";
+        } else if (respuesta < numAleatorio) {
+            msj = "Ingrese un número más grande...";
+        }
+        respuesta = prompt(msj); // Mostramos el mensaje actualizado.
+    }
 }
 
 btn5.addEventListener('click', ejercicio5);
