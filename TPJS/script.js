@@ -471,7 +471,7 @@ function ejercicio2b() {
         '<input style="background-color: rgb(19, 18, 18); padding: 10px; color: yellow; margin-right: 10px;" type="text" id="apellido" name="apellido">' +
 
         // Genero radio-btn dentro de un div para evitar direction column  
-        '<div style="padding:0; width:100%;border:none;box-shadow: none;display: flex; flex-direction: row;gap :8px;">' +
+        '<div style="padding:0; width:100%;border:none;box-shadow: none;display: flex; flex-direction: row;gap :5px;">' +
         '<label style="color: yellow; margin-right: 10px;">Género:</label>' +
         '<label for="masculino">Masculino</label>' +
         '<input type="radio" id="masculino" name="genero" value="masculino">' +
