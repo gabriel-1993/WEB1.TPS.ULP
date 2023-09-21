@@ -461,17 +461,17 @@ const btn2b = document.querySelector(".btn2b");
 const p2b = document.querySelector(".p2b");
 
 function ejercicio2b() {
-    p2b.innerHTML = '<h3>Ingresar Datos en el formulario:</h3>' +
+    p2b.innerHTML = '<h3>Ingresar Datos</h3>' +
 
         // Nombre y Apellido tipe text
         '<form class="miForm" style="display: flex; justify-content: space-between; flex-direction: column;gap:10px ;">' +
-        '<label style="color: yellow; margin-right: 10px;" for="nombre">Nombre</label>' +
+        '<label style="color: yellow; margin-right: 10px;" for="nombre">Nombre:</label>' +
         '<input style="background-color: rgb(19, 18, 18); padding: 10px; color: yellow; margin-right: 10px;" type="text" id="nombre" name="nombre">' +
-        '<label style="color: yellow; margin-right: 10px;" for="apellido">Apellido</label>' +
+        '<label style="color: yellow; margin-right: 10px;" for="apellido">Apellido:</label>' +
         '<input style="background-color: rgb(19, 18, 18); padding: 10px; color: yellow; margin-right: 10px;" type="text" id="apellido" name="apellido">' +
 
         // Genero radio-btn dentro de un div para evitar direction column  
-        '<div style="padding:0; width:100%;border:none;box-shadow: none;display: flex; flex-direction: row;gap :14px;">' +
+        '<div style="padding:0; width:100%;border:none;box-shadow: none;display: flex; flex-direction: row;gap :8px;">' +
         '<label style="color: yellow; margin-right: 10px;">Género:</label>' +
         '<label for="masculino">Masculino</label>' +
         '<input type="radio" id="masculino" name="genero" value="masculino">' +
