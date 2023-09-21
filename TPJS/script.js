@@ -31,7 +31,7 @@ function Ejercicio1html() {
         //(1000*60*60*24)= 86400000 . la cantidad de milisegundos por dia.
         let diasVividos = Math.floor(diferenciaEnMilisegundos / (1000 * 60 * 60 * 24));
 
-        p1.innerHTML = "Hola " + nombre + " ! , días vividos desde " + fechaNacimiento.getFullYear() + " hasta Hoy : " + diasVividos + "dias.";
+        p1.innerHTML = "Hola " + nombre + " ! , días vividos desde " + fechaNacimiento.getFullYear() + " hasta Hoy : " + diasVividos + " dias.";
         p1.style.color = "yellow";
         p1.style.display = "flex";
     } else {
@@ -161,7 +161,7 @@ function ejercicio5() {
     let msj = "";
     respuesta = prompt("Vamos a adivinar un numero!, ingrese un numero entre 0 y 10 ");
     // Agregamos una comprobación para manejar el caso en que el usuario cancele el prompt.
-    while (respuesta !== null) { 
+    while (respuesta !== null) {
         respuesta = parseInt(respuesta);
         contador++;
         if (respuesta === numAleatorio) {
@@ -169,7 +169,7 @@ function ejercicio5() {
             p5.style.display = "block";
             p5.style.color = "yellow";
             // Salimos del bucle 
-            break; 
+            break;
         } else if (respuesta > numAleatorio) {
             msj = "Ingrese un número más chico...";
         } else if (respuesta < numAleatorio) {
@@ -385,26 +385,140 @@ const btn11 = document.querySelector(".btn11");
 const p11 = document.querySelector(".p11");
 
 function ejercicio11() {
-let dia= prompt("Ingrese el dia 01 hasta 31");
-let mes= prompt("Ingrese el mes 01 hasta 12");
-let anio= prompt("Ingrese el año ej: 2023");
+    let dia = prompt("Ingrese el dia 01 hasta 31");
+    let mes = prompt("Ingrese el mes 01 hasta 12");
+    let anio = prompt("Ingrese el año ej: 2023");
 
-//parsea strings a enteros
-dia = parseInt(dia);
-mes= parseInt(mes);
-anio= parseInt(anio);
+    //parsea strings a enteros
+    dia = parseInt(dia);
+    mes = parseInt(mes);
+    anio = parseInt(anio);
 
-//validar los datos 
-if(dia>0 && dia<32 && mes>0 && mes<13 && !isNaN(dia) && !isNaN(mes) && !isNaN(anio) ){
-let fechaDate2 = new Date();
-fechaDate2.setDate(dia);
-fechaDate2.setMonth(mes-1);
-fechaDate2.setFullYear(anio);
-p11.innerHTML="Fecha ingresada: "+fechaDate2;
-}else{
-    p11.innerHTML=" Datos ingresados , no validos.";
+    //validar los datos 
+    if (dia > 0 && dia < 32 && mes > 0 && mes < 13 && !isNaN(dia) && !isNaN(mes) && !isNaN(anio)) {
+        let fechaDate2 = new Date();
+        fechaDate2.setDate(dia);
+        fechaDate2.setMonth(mes - 1);
+        fechaDate2.setFullYear(anio);
+        p11.innerHTML = "Fecha ingresada: " + fechaDate2;
+    } else {
+        p11.innerHTML = " Datos ingresados , no validos.";
+    }
+    p11.style.display = "block";
+    p11.style.color = "yellow";
 }
-p11.style.display="block";
-p11.style.color="yellow";
+btn11.addEventListener('click', ejercicio11);
+
+/* ******************************************************************************************
+PARTE B
+
+1) Realiza una página que muestre un formulario y verifique la entrada de un número que
+esté comprendido entre 1 y 100. */
+
+const btn1b = document.querySelector(".btn1b");
+const p1b = document.querySelector(".p1b");
+
+function ejercicio1b() {
+
+    p1b.innerHTML = '<form class="miForm">' +
+        '<label style=color:yellow;margin-right:10px; for="numIngresado">Ingrese un número del 1 al 100</label>' +
+        '<input style=" background-color: rgb(19, 18, 18); padding: 10px; color: yellow;margin-right: 10px;" type="text" id="numIngresado" name="numIngresado">' +
+        '<input style="background-color: rgb(19, 18, 18); padding: 10px; color: yellow;" type="submit" value="Verificar">' +
+        '</form>';
+    p1b.style.display = "block";
+    p1b.style.color = "yellow";
+
+    //Capturamos el formulario en JS 
+    const miFormulario = document.querySelector(".miForm");
+    //Previene que se actualize la pagina y se pierda el dato
+    miFormulario.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        // parsear el numero a entero
+        const numIngresado = parseInt(document.getElementById("numIngresado").value);
+
+        // Verificar si el número esta entre 1-100 y si es un dato valido(algo distinto a un num)
+        if (!isNaN(numIngresado) && numIngresado >= 1 && numIngresado <= 100) {
+            p1b.innerHTML = "";
+            p1b.innerHTML = " El numero " + numIngresado + " esta dentro del rango(1-100)";
+        }
+        if (isNaN(numIngresado)) {
+            p1b.innerHTML = "";
+            p1b.innerHTML = "Error en tipo de dato: debe ingresar un numero";
+        }
+        else {
+            p1b.innerHTML = "";
+            p1b.innerHTML = "Error: El numero " + numIngresado + " NO esta dentro del rango(1-100)";
+        }
+    });
 }
-btn11.addEventListener('click',ejercicio11);
+
+btn1b.addEventListener('click', ejercicio1b);
+
+// ********************************************************************************************
+
+const btn2b = document.querySelector(".btn2b");
+const p2b = document.querySelector(".p2b");
+
+function ejercicio2b() {
+    p2b.innerHTML = '<h3>Ingresar Datos en el formulario:</h3>' +
+
+        // Nombre y Apellido tipe text
+        '<form class="miForm" style="display: flex; justify-content: space-between; flex-direction: column;gap:10px ;">' +
+        '<label style="color: yellow; margin-right: 10px;" for="nombre">Nombre</label>' +
+        '<input style="background-color: rgb(19, 18, 18); padding: 10px; color: yellow; margin-right: 10px;" type="text" id="nombre" name="nombre">' +
+        '<label style="color: yellow; margin-right: 10px;" for="apellido">Apellido</label>' +
+        '<input style="background-color: rgb(19, 18, 18); padding: 10px; color: yellow; margin-right: 10px;" type="text" id="apellido" name="apellido">' +
+
+        // Genero radio-btn dentro de un div para evitar direction column  
+        '<div style="padding:0; width:100%;border:none;box-shadow: none;display: flex; flex-direction: row;gap :14px;">' +
+        '<label style="color: yellow; margin-right: 10px;">Género:</label>' +
+        '<label for="masculino">Masculino</label>' +
+        '<input type="radio" id="masculino" name="genero" value="masculino">' +
+        '<label for="femenino">Femenino</label>' +
+        '<input type="radio" id="femenino" name="genero" value="femenino">' +
+        '<label for="otro">Otro</label>' +
+        '<input type="radio" id="otro" name="genero" value="otro">' +
+        '</div>' +
+
+        //Fecha de nacimiento dentro de un div para evitar direction column 
+        '<div style="padding:0;width:100%;border:none;box-shadow: none;display: flex; flex-direction: row;gap :14px;">' +
+        '<label for="fechaNacimiento" style="color: yellow; margin-right: 10px";>Fecha de Nacimiento:</label>' +
+        '<input style="color:black; background-color:yellow; "type="date" id="fechaNacimiento" name="fechaNacimiento"></div>' +
+
+        //Email 
+        '<label for="correoElectronico"style="color: yellow; margin-right: 10px";>Correo Electrónico:</label>'+
+        '<input style="background-color: rgb(19, 18, 18); padding: 10px; color: yellow; margin-right: 10px;"type="email" id="correoElectronico" name="correoElectronico"></input>'+
+        '<input style="background-color: rgb(19, 18, 18); padding: 10px; color: yellow;" type="submit" value="Verificar">' +
+        '</form>';
+    p2b.style.display = "block";
+    p2b.style.color = "yellow";
+
+    //Capturamos el formulario en JS 
+    const miFormulario = document.querySelector(".miForm");
+    //Previene que se actualize la pagina y se pierda el dato
+    miFormulario.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        // parsear el numero a entero
+        const numIngresado = parseInt(document.getElementById("numIngresado").value);
+
+        // Verificar si el número esta entre 1-100 y si es un dato valido(algo distinto a un num)
+        if (!isNaN(numIngresado) && numIngresado >= 1 && numIngresado <= 100) {
+            p1b.innerHTML = "";
+            p1b.innerHTML = " El numero " + numIngresado + " esta dentro del rango(1-100)";
+        }
+        if (isNaN(numIngresado)) {
+            p1b.innerHTML = "";
+            p1b.innerHTML = "Error en tipo de dato: debe ingresar un numero";
+        }
+        else {
+            p1b.innerHTML = "";
+            p1b.innerHTML = "Error: El numero " + numIngresado + " NO esta dentro del rango(1-100)";
+        }
+    });
+
+
+
+}
+btn2b.addEventListener('click', ejercicio2b);

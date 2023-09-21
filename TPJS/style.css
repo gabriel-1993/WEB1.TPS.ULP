@@ -5,6 +5,7 @@
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     list-style: none;
+    
 }
 
 section {
@@ -27,6 +28,7 @@ section h1 {
     padding: 20px;
     text-align: center;
     font-size: 2.4rem;
+    color: yellow;
 }
 
 /* Div/Card consigna individual */
@@ -136,4 +138,17 @@ button:hover {
     box-shadow: none;
     border: none;
     cursor: pointer;
+}
+
+/* PARTE B TITULO */
+h2{
+    margin: 40px 0;
+    color: white;
+    background-color: rgb(19, 18, 18);
+    box-shadow: 13px 13px 6px rgba(0, 0, 0, 0.589);
+    border-radius: 10px;
+    padding: 20px 60px;
+    text-align: center;
+    font-size: 2.4rem;
+    color: yellow;
 }
