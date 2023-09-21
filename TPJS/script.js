@@ -489,7 +489,7 @@ function ejercicio2b() {
         //Email 
         '<label for="correoElectronico"style="color: yellow; margin-right: 10px";>Correo Electrónico:</label>'+
         '<input style="background-color: rgb(19, 18, 18); padding: 10px; color: yellow; margin-right: 10px;"type="email" id="correoElectronico" name="correoElectronico"></input>'+
-        '<input style="background-color: rgb(19, 18, 18); padding: 10px; color: yellow;" type="submit" value="Verificar">' +
+        '<input style="background-color: rgb(19, 18, 18); padding: 10px; color: yellow;" type="submit" value="Enviar">' +
         '</form>';
     p2b.style.display = "block";
     p2b.style.color = "yellow";
