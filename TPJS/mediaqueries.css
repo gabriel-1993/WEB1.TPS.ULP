@@ -1,0 +1,35 @@
+@media (max-width: 768px) {
+    section{
+        width: 100%;
+        padding: 0;
+    }
+  section h1{
+    width: 90%;
+  }
+  section div{
+    width: 95%;
+  }
+  .divBtnRes{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  button{
+    width:95%;
+    padding: 0
+  } 
+  .pResultado{
+    width: 95%;
+  }
+   /* tabla en resoluciones chicas */
+   .div9{
+    padding: 15px 0;
+   }
+   .divBtnRes9{
+    width: 100%;
+   }
+   .p9{
+    padding: 0;
+   }
+  
+}
