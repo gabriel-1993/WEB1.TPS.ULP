@@ -613,6 +613,7 @@ function ejercicio2b() {
         }
         if (formCumple) {
             miFormulario.submit();
+            alert("Formulario enviado con exito.");
         }
     });
 }
@@ -630,175 +631,82 @@ btn2b.addEventListener('click', ejercicio2b);
 // entre 18 y 30. La dirección de correo debe incluir una arroba y su longitud sea superior a
 // cinco caracteres.
 
-
 const btn3b = document.querySelector(".btn3b");
 const p3b = document.querySelector(".p3b");
 
 function ejercicio3b() {
     p3b.innerHTML = '<h3>Ingresar Datos</h3>' +
-
-        // Nombre y Apellido tipe text
-        '<form class="miForm" style="display: flex; justify-content: space-between; flex-direction: column;gap:10px ;">' +
+        '<form class="miForm" style="display: flex; justify-content: space-between; flex-direction: column; gap:10px;">' +
         '<label style="color: yellow; margin-right: 10px;" for="nombre">Nombre:</label>' +
         '<input style="background-color: rgb(19, 18, 18); padding: 10px; color: yellow; margin-right: 10px;" type="text" id="nombre" name="nombre">' +
-        '<label style="color: yellow; margin-right: 10px;" for="apellido">Apellido:</label>' +
-        '<input style="background-color: rgb(19, 18, 18); padding: 10px; color: yellow; margin-right: 10px;" type="text" id="apellido" name="apellido">' +
 
-        // Genero radio-btn dentro de un div para evitar direction column  
-        '<div style="padding:0; width:100%;border:none;box-shadow: none;display: flex; flex-direction: row;gap :5px;">' +
-        '<label style="color: yellow; margin-right: 5px;">Género:</label>' +
-        '<label for="masculino">Masculino</label>' +
-        '<input type="radio" id="masculino" name="genero" value="masculino">' +
-        '<label for="femenino">Femenino</label>' +
-        '<input type="radio" id="femenino" name="genero" value="femenino">' +
-        '<label for="otro">Otro</label>' +
-        '<input type="radio" id="otro" name="genero" value="otro">' +
-        '</div>' +
+        '<label style="color: yellow; margin-right: 10px;" for="edad">Edad:</label>' +
+        '<input style="background-color: rgb(19, 18, 18); padding: 10px; color: yellow; margin-right: 10px;" type="text" id="edad" name="edad">' +
 
-        //Fecha de nacimiento dentro de un div para evitar direction column 
-        '<div style="padding:0;width:100%;border:none;box-shadow: none;display: flex; flex-direction: row;gap :14px;">' +
-        '<label for="fechaNacimiento" style="color: yellow; margin-right: 10px";>Fecha de Nacimiento:</label>' +
-        '<input style="color:black; background-color:yellow; "type="date" id="fechaNacimiento" name="fechaNacimiento"></div>' +
-
-        //Email 
-        '<label for="correoElectronico"style="color: yellow; margin-right: 10px";>Correo Electrónico:</label>' +
-        '<input style="background-color: rgb(19, 18, 18); padding: 10px; color: yellow; margin-right: 10px;"type="email" id="correoElectronico" name="correoElectronico"></input>' +
+        '<label for="correoElectronico" style="color: yellow; margin-right: 10px;">Correo Electrónico:</label>' +
+        '<input style="background-color: rgb(19, 18, 18); padding: 10px; color: yellow; margin-right: 10px;" type="email" id="correoElectronico" name="correoElectronico">' +
         '<input style="background-color: rgb(19, 18, 18); padding: 10px; color: yellow;" type="submit" value="Enviar">' +
         '</form>';
     p3b.style.display = "block";
     p3b.style.color = "yellow";
 
-    //Capturamos el formulario en JS 
+    // Capturamos el formulario en JS
     const miFormulario = document.querySelector(".miForm");
-    //nombre imput
+    // nombre input
     const nombreInput = document.getElementById("nombre");
-    //apellido imput
-    const apellidoInput = document.getElementById("apellido");
+    // edad input
+    const edadInput = document.getElementById("edad");
+    // correo electrónico input
+    const correoInput = document.getElementById("correoElectronico");
 
-    //Previene que se actualize la pagina y se pierda el dato
+    // Evento de envío del formulario
     miFormulario.addEventListener("submit", function (event) {
-
         event.preventDefault();
 
-        //VALIDAR NOMBRE:
+        //guarda los valores ingresados
+        const nombre = nombreInput.value.trim().toUpperCase();
+        const edad = edadInput.value.trim().toUpperCase();
+        const correo = correoInput.value.trim().toUpperCase();
+
+        // validar el nombre
         let nombreCumple = false;
-        let nombre = nombreInput.value.trim().toUpperCase();
-        if (nombre === '') {
-            alert('Por favor, ingresa tu nombre.');
-            nombre.focus();
-            nombreCumple = false;
-        }
-        // La expresión /^[a-zA-Z\s]+$/ es una expresión regular para verificar
-        //contiene solo letras (mayusculas o minusculas) y espacios en blanco:
-        // esta negado : ! para mostrar el msj para un nom mal ingresado
-        else if (!/^[a-zA-Z\s]+$/.test(nombre)) {
-            alert('Error: solo puedes ingresar letras y/o espacios');
-            nombre.focus();
-            nombreCumple = false;
-        } else {
-            // Envia el formulario si la validacion es exitosa
+        const nombreExpresion = /^[A-Za-zÁ-ú]+$/; // Solo letras del alfabeto español
+        if (nombre.match(nombreExpresion) && nombre.length > 4) {
             nombreCumple = true;
-        }
-
-        //VALIDAR APELLIDO:
-        let apellidoCumple = false;
-        let apellido = apellidoInput.value.trim().toUpperCase();
-        if (apellido === '') {
-            alert('Error: Ingrese su apelldio');
-            apellido.focus();
-            apellidoCumple = false;
-        }
-        // La expresión /^[a-zA-Z\s]+$/ es una expresión regular para verificar
-        //contiene solo letras (mayusculas o minusculas) y espacios en blanco:
-        // esta negado : ! para mostrar el msj para un nom mal ingresado
-        else if (!/^[a-zA-Z\s]+$/.test(apellido)) {
-            alert('Error: solo debe contener letras y/o espacios');
-            apellidoInput.focus();
-            apellidoCumple = false;
         } else {
-            // Envia el formulario si la validacion es exitosa
-            apellidoCumple = true;
+            nombreCumple = false;
+            nombreInput.value="";
+            nombre.value="";
+            alert("El nombre debe contener caracteres del alfabeto español mínimo 4 letras (no debe tener números ni símbolos).");
         }
 
-        //VALIDAR GENERO :
-        let generoCumple = false;
-        //  3 input con el mismo input name genero
-        let generoRadios = document.querySelectorAll('input[name="genero"]');
-        let generoSeleccionado = false;
+        // validar la edad
+        let edadCumple = false;
+        let edadEntero = parseInt(edad);
 
-        // Recorrer(forEach()) todos los radio buttons para verificar si uno esta seleccionado
-        generoRadios.forEach(function (radio) {
-            if (radio.checked) {
-                generoSeleccionado = true;
-            }
-        });
-
-        // Verificar si se selecciono un genero
-        if (generoSeleccionado) {
-            generoCumple = true;
+        if (!isNaN(edadEntero) && edadEntero >= 18 && edadEntero <= 30) {
+            edadCumple = true;
         } else {
-            generoCumple = false;
-            alert('Por favor, selecciona un género antes de continuar.');
+            edadCumple = false;
+            alert("Debe ingresar una edad entre 18 y 30.");
         }
 
-        //VALIDAR FECHA :
-        let fechaCumple = false;
-        // Obtener el elemento de entrada de fecha
-        let fechaNacimientoInput = document.getElementById('fechaNacimiento');
-
-        // Obtener el valor ingresado en el campo de fecha
-        let fechaNacimiento = fechaNacimientoInput.value;
-
-        // Obtener la fecha actual en formato  (YYYY-MM-DD)
-        //1. new date() crea la fecha actual(hoy)
-        //2. toISOString() en el objeto Date. Este método convierte la fecha y 
-        //la hora en una cadena de texto en formato ISO 8601.Ej: "2023-09-22T14:30:00.000Z"
-        //3. split('T') en esa cadena. Esto divide la cadena en dos partes en función de la 
-        //letra "T" que separa la fecha de la hora en el formato ISO 8601. La parte izquierda 
-        //(indice 0) contiene la fecha y la parte derecha (indice 1) contiene la hora.  
-        //por lo tanto en fechaActual quedaria: 2023-09-22
-        let fechaActual = new Date().toISOString().split('T')[0];
-
-        if (fechaNacimiento === '') {
-            fechaCumple = false;
-            alert('Por favor, ingresa tu fecha de nacimiento.');
-        } else if (fechaNacimiento > fechaActual) {
-            fechaCumple = false;
-            alert('La fecha de nacimiento no puede ser en el futuro.');
-        } else {
-            fechaCumple = true;
-        }
-
-
-        //VALIDAR CORREO ELECTRONICO :
-        let correoCumple = false;
-        // Obtener el elemento de entrada de correo electronico
-        let correoElectronicoInput = document.getElementById('correoElectronico');
-
-        let correoElectronico = correoElectronicoInput.value.trim().toUpperCase();;
-
-        // la sig expresion valida si hay letras azAZ,num09,simbolos ._-, un @,nuevamente lo anterior, un punto, azAZ entre 2 O 4 caracteres
-        let regexCorreoElectronico = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-
-        if (correoElectronico === '') {
-            cumple = false;
-            alert('Por favor, ingresa tu correo electronico.');
-        } else if (!regexCorreoElectronico.test(correoElectronico)) {
-            correoCumple = false;
-            alert('Por favor, ingresa un correo electrónico válido.');
-        } else {
+        // validar el correo electrónico
+        // Expresión: correo debe incluir una arroba y su longitud sea superior a cinco caracteres
+        const correoExpresion = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+        if (correo.includes("@") && correo.length > 5 && correo.match(correoExpresion)) {
             correoCumple = true;
+        } else {
+            correoCumple = false;
+            alert("La dirección de correo debe incluir una arroba y su longitud debe ser superior a cinco caracteres.");
         }
-        // validacion final si todas son true hace submit
-        let formCumple = false;
-        if (nombreCumple && apellidoCumple && generoCumple && fechaCumple && correoCumple) {
-            formCumple = true;
-        }
-        if (formCumple) {
+
+        if (nombreCumple && edadCumple && correoCumple) {
+            // Los datos son válidos, puedes enviar el formulario o hacer lo que necesites
             miFormulario.submit();
-        }
+            alert("Formulario enviado con éxito.");
+        } 
     });
 }
-
 
 btn3b.addEventListener('click', ejercicio3b);
