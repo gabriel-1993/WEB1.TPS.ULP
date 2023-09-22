@@ -16,6 +16,8 @@ section {
     gap: 30px;
     padding: 0 30px;
     background-color: rgb(31, 31, 29);
+    /* Espacio vacio para el fin de la pagina */
+    padding-bottom: 80px;
 }
 
 /* Section contenedor de cards consignas y h1: tp javascript... */
