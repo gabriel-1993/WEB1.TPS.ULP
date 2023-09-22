@@ -12,36 +12,26 @@ const btn1 = document.querySelector(".btn1");
 const p1 = document.querySelector(".p1");
 
 
-function Ejercicio1html() {
-    let nombre = prompt("Diga su nombre");
-    let edad = prompt("Di tu edad");
+function ejercicio1() {
+    let nombre = prompt("Ingrese su nombre");
+    let edad = prompt("Ingrese su edad");
 
-    if (nombre !== "" && edad !== "") {
-
+    if (nombre !== null && edad !== null && nombre !== "" && edad !== "" && !isNaN(edad)) {
         let fechaActual = new Date();
-
-        //Guarda el año de nacimiento , restandole edad al año de fecha actual
         let fechaNacimiento = new Date();
-        fechaNacimiento.setFullYear(fechaNacimiento.getFullYear() - edad);
-
-        // Calcula la diferencia en milisegundos entre las dos fechas
+        fechaNacimiento.setFullYear(fechaNacimiento.getFullYear() - parseInt(edad));
         let diferenciaEnMilisegundos = fechaActual - fechaNacimiento;
-        // Convierte la diferencia en dias, dividiendo por la cantidad de milisegundos en un dia.
-        // Math.floor redondea numero decimal al mas cercano hacia abajo
-        //(1000*60*60*24)= 86400000 . la cantidad de milisegundos por dia.
         let diasVividos = Math.floor(diferenciaEnMilisegundos / (1000 * 60 * 60 * 24));
 
-        p1.innerHTML = "Hola " + nombre + " ! , días vividos desde " + fechaNacimiento.getFullYear() + " hasta Hoy : " + diasVividos + " dias.";
+        p1.innerHTML = `Hola ${nombre}! Has vivido ${diasVividos} días hasta hoy.`;
         p1.style.color = "yellow";
-        p1.style.display = "flex";
     } else {
-        p1.innerHTML = "❌Error : datos mal ingresados !❌";
-        p1.style.color = "yellow";
-        p1.style.display = "block";
-        return;
+        p1.innerHTML = "❌ Error: Datos ingresados no válidos ❌";
+        p1.style.color = "red";
     }
 }
-btn1.addEventListener('click', Ejercicio1html);
+
+btn1.addEventListener('click', ejercicio1);
 
 //**************************************************************************************************************************** */
 //**************************************************************************************************************************** */
@@ -419,42 +409,43 @@ const btn1b = document.querySelector(".btn1b");
 const p1b = document.querySelector(".p1b");
 
 function ejercicio1b() {
+    p1b.innerHTML = `
+        <form class="miForm">
+            <label style="color: yellow; margin-right: 10px;" for="numIngresado">Ingrese un número del 1 al 100</label>
+            <input style="background-color: rgb(19, 18, 18); padding: 10px; color: yellow; margin-right: 10px;" type="text" id="numIngresado" name="numIngresado">
+            <input style="background-color: rgb(19, 18, 18); padding: 10px; color: yellow;" type="submit" value="Verificar">
+        </form>
+    `;
 
-    p1b.innerHTML = '<form class="miForm">' +
-        '<label style=color:yellow;margin-right:10px; for="numIngresado">Ingrese un número del 1 al 100</label>' +
-        '<input style=" background-color: rgb(19, 18, 18); padding: 10px; color: yellow;margin-right: 10px;" type="text" id="numIngresado" name="numIngresado">' +
-        '<input style="background-color: rgb(19, 18, 18); padding: 10px; color: yellow;" type="submit" value="Verificar">' +
-        '</form>';
     p1b.style.display = "block";
     p1b.style.color = "yellow";
 
-    //Capturamos el formulario en JS 
     const miFormulario = document.querySelector(".miForm");
-    //Previene que se actualize la pagina y se pierda el dato
+
     miFormulario.addEventListener("submit", function (event) {
         event.preventDefault();
 
-        // parsear el numero a entero
         const numIngresado = parseInt(document.getElementById("numIngresado").value);
 
-        // Verificar si el número esta entre 1-100 y si es un dato valido(algo distinto a un num)
         if (!isNaN(numIngresado) && numIngresado >= 1 && numIngresado <= 100) {
             p1b.innerHTML = "";
-            p1b.innerHTML = " El numero " + numIngresado + " esta dentro del rango(1-100)";
-        }
-        if (isNaN(numIngresado)) {
+            p1b.innerHTML = `El número ${numIngresado} está dentro del rango (1-100).`;
+            p1b.style.color = "yellow";
+        } else if (isNaN(numIngresado)) {
             p1b.innerHTML = "";
-            p1b.innerHTML = "Error en tipo de dato: debe ingresar un numero";
-        }
-        else {
+            p1b.innerHTML = "Error en el tipo de dato: debe ingresar un número.";
+            p1b.style.color = "red";
+        } else {
             p1b.innerHTML = "";
-            p1b.innerHTML = "Error: El numero " + numIngresado + " NO esta dentro del rango(1-100)";
+            p1b.innerHTML = `Error: El número ${numIngresado} NO está dentro del rango (1-100).`;
+            p1b.style.color = "red";
         }
     });
 }
 
 btn1b.addEventListener('click', ejercicio1b);
 
+// ********************************************************************************************
 // ********************************************************************************************
 
 const btn2b = document.querySelector(".btn2b");
@@ -487,8 +478,8 @@ function ejercicio2b() {
         '<input style="color:black; background-color:yellow; "type="date" id="fechaNacimiento" name="fechaNacimiento"></div>' +
 
         //Email 
-        '<label for="correoElectronico"style="color: yellow; margin-right: 10px";>Correo Electrónico:</label>'+
-        '<input style="background-color: rgb(19, 18, 18); padding: 10px; color: yellow; margin-right: 10px;"type="email" id="correoElectronico" name="correoElectronico"></input>'+
+        '<label for="correoElectronico"style="color: yellow; margin-right: 10px";>Correo Electrónico:</label>' +
+        '<input style="background-color: rgb(19, 18, 18); padding: 10px; color: yellow; margin-right: 10px;"type="email" id="correoElectronico" name="correoElectronico"></input>' +
         '<input style="background-color: rgb(19, 18, 18); padding: 10px; color: yellow;" type="submit" value="Enviar">' +
         '</form>';
     p2b.style.display = "block";
@@ -496,29 +487,135 @@ function ejercicio2b() {
 
     //Capturamos el formulario en JS 
     const miFormulario = document.querySelector(".miForm");
+    //nombre imput
+    const nombreInput = document.getElementById("nombre");
+    //apellido imput
+    const apellidoInput = document.getElementById("apellido");
+
     //Previene que se actualize la pagina y se pierda el dato
     miFormulario.addEventListener("submit", function (event) {
+
         event.preventDefault();
 
-        // parsear el numero a entero
-        const numIngresado = parseInt(document.getElementById("numIngresado").value);
+        //VALIDAR NOMBRE:
+        let nombreCumple = false;
+        let nombre = nombreInput.value.trim().toUpperCase();
+        if (nombre === '') {
+            alert('Por favor, ingresa tu nombre.');
+            nombre.focus();
+            nombreCumple = false;
+        }
+        // La expresión /^[a-zA-Z\s]+$/ es una expresión regular para verificar
+        //contiene solo letras (mayusculas o minusculas) y espacios en blanco:
+        // esta negado : ! para mostrar el msj para un nom mal ingresado
+        else if (!/^[a-zA-Z\s]+$/.test(nombre)) {
+            alert('Error: solo puedes ingresar letras y/o espacios');
+            nombre.focus();
+            nombreCumple = false;
+        } else {
+            // Envia el formulario si la validacion es exitosa
+            nombreCumple = true;
+        }
 
-        // Verificar si el número esta entre 1-100 y si es un dato valido(algo distinto a un num)
-        if (!isNaN(numIngresado) && numIngresado >= 1 && numIngresado <= 100) {
-            p1b.innerHTML = "";
-            p1b.innerHTML = " El numero " + numIngresado + " esta dentro del rango(1-100)";
+        //VALIDAR APELLIDO:
+        let apellidoCumple = false;
+        let apellido = apellidoInput.value.trim().toUpperCase();
+        if (apellido === '') {
+            alert('Error: Ingrese su apelldio');
+            apellido.focus();
+            apellidoCumple = false;
         }
-        if (isNaN(numIngresado)) {
-            p1b.innerHTML = "";
-            p1b.innerHTML = "Error en tipo de dato: debe ingresar un numero";
+        // La expresión /^[a-zA-Z\s]+$/ es una expresión regular para verificar
+        //contiene solo letras (mayusculas o minusculas) y espacios en blanco:
+        // esta negado : ! para mostrar el msj para un nom mal ingresado
+        else if (!/^[a-zA-Z\s]+$/.test(apellido)) {
+            alert('Error: solo debe contener letras y/o espacios');
+            apellidoInput.focus();
+            apellidoCumple = false;
+        } else {
+            // Envia el formulario si la validacion es exitosa
+            apellidoCumple = true;
         }
-        else {
-            p1b.innerHTML = "";
-            p1b.innerHTML = "Error: El numero " + numIngresado + " NO esta dentro del rango(1-100)";
+
+        //VALIDAR GENERO :
+        let generoCumple = false;
+        //  3 input con el mismo input name genero
+        let generoRadios = document.querySelectorAll('input[name="genero"]');
+        let generoSeleccionado = false;
+
+        // Recorrer(forEach()) todos los radio buttons para verificar si uno esta seleccionado
+        generoRadios.forEach(function (radio) {
+            if (radio.checked) {
+                generoSeleccionado = true;
+            }
+        });
+
+        // Verificar si se selecciono un genero
+        if (generoSeleccionado) {
+            generoCumple = true;
+        } else {
+            generoCumple = false;
+            alert('Por favor, selecciona un género antes de continuar.');
+        }
+
+        //VALIDAR FECHA :
+        let fechaCumple = false;
+        // Obtener el elemento de entrada de fecha
+        let fechaNacimientoInput = document.getElementById('fechaNacimiento');
+
+        // Obtener el valor ingresado en el campo de fecha
+        let fechaNacimiento = fechaNacimientoInput.value;
+
+        // Obtener la fecha actual en formato  (YYYY-MM-DD)
+        //1. new date() crea la fecha actual(hoy)
+        //2. toISOString() en el objeto Date. Este método convierte la fecha y 
+        //la hora en una cadena de texto en formato ISO 8601.Ej: "2023-09-22T14:30:00.000Z"
+        //3. split('T') en esa cadena. Esto divide la cadena en dos partes en función de la 
+        //letra "T" que separa la fecha de la hora en el formato ISO 8601. La parte izquierda 
+        //(indice 0) contiene la fecha y la parte derecha (indice 1) contiene la hora.  
+        //por lo tanto en fechaActual quedaria: 2023-09-22
+        let fechaActual = new Date().toISOString().split('T')[0];
+
+        if (fechaNacimiento === '') {
+            fechaCumple = false;
+            alert('Por favor, ingresa tu fecha de nacimiento.');
+        } else if (fechaNacimiento > fechaActual) {
+            fechaCumple = false;
+            alert('La fecha de nacimiento no puede ser en el futuro.');
+        } else {
+            fechaCumple = true;
+        }
+
+
+        //VALIDAR CORREO ELECTRONICO :
+        let correoCumple = false;
+        // Obtener el elemento de entrada de correo electronico
+        let correoElectronicoInput = document.getElementById('correoElectronico');
+
+        let correoElectronico = correoElectronicoInput.value.trim().toUpperCase();;
+
+        // la sig expresion valida si hay letras azAZ,num09,simbolos ._-, un @,nuevamente lo anterior, un punto, azAZ entre 2 O 4 caracteres
+        let regexCorreoElectronico = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+        if (correoElectronico === '') {
+            cumple = false;
+            alert('Por favor, ingresa tu correo electronico.');
+        } else if (!regexCorreoElectronico.test(correoElectronico)) {
+            correoCumple = false;
+            alert('Por favor, ingresa un correo electrónico válido.');
+        } else {
+            correoCumple = true;
+        }
+        // validacion final si todas son true hace submit
+        let formCumple = false;
+        if (nombreCumple && apellidoCumple && generoCumple && fechaCumple && correoCumple) {
+            formCumple = true;
+        }
+        if (formCumple) {
+            miFormulario.submit();
         }
     });
-
-
-
 }
+
+
 btn2b.addEventListener('click', ejercicio2b);
