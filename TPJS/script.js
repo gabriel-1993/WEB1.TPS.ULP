@@ -675,8 +675,8 @@ function ejercicio3b() {
             nombreCumple = true;
         } else {
             nombreCumple = false;
-            nombreInput.value="";
-            nombre.value="";
+            nombreInput.value = "";
+            nombre.value = "";
             alert("El nombre debe contener caracteres del alfabeto español mínimo 4 letras (no debe tener números ni símbolos).");
         }
 
@@ -702,11 +702,136 @@ function ejercicio3b() {
         }
 
         if (nombreCumple && edadCumple && correoCumple) {
-            // Los datos son válidos, puedes enviar el formulario o hacer lo que necesites
+            //datos validos, envia el form
             miFormulario.submit();
             alert("Formulario enviado con éxito.");
-        } 
+        }
     });
 }
 
 btn3b.addEventListener('click', ejercicio3b);
+
+// ******************************************************************************************************************
+
+//Consigna 4b
+// Realice un formulario para la carga de datos de un CD. Realice las validaciones
+// correspondientes. Por medio de un botón agregar canción se debe habilitar una línea nueva
+// para cargar la canción (nombre, compositor, duración).
+
+const btn4b = document.querySelector(".btn4b");
+const p4b = document.querySelector(".p4b");
+
+
+// Funcion para ejecutar dentro de la funcion de la consigna 4b, cuando reciba un click agregar album, se va mostrar el form
+// y al darle click en agregar cancion se validan los datos antes de hacer el submit
+
+function cargarValidarCanciones() {
+    p4b.innerHTML =
+        '<h3>Ingresar caciones nuevo album</h3>' +
+        '<form class="miForm" style="display: flex; justify-content: space-between; flex-direction: column; gap:10px;">' +
+        '<label style="color: yellow; margin-right: 10px;" for="nombre">Nombre:</label>' +
+        '<input style="background-color: rgb(19, 18, 18); padding: 10px; color: yellow; margin-right: 10px;" type="text" id="nombre" name="nombre">' +
+
+        '<label style="color: yellow; margin-right: 10px;" for="compositor">Compositor:</label>' +
+        '<input style="background-color: rgb(19, 18, 18); padding: 10px; color: yellow; margin-right: 10px;" type="text" id="compositor" name="compositor">' +
+
+        '<label for="duracion" style="color: yellow; margin-right: 10px;">Duracion :</label>' +
+        '<input style="background-color: rgb(19, 18, 18); padding: 10px; color: yellow; margin-right: 10px;" type="text" placeholder="HH:MM 01:20" id="duracion" name="duracion">' +
+        '<input style="border:solid 1px yellow; background-color: rgb(19, 18, 18); padding: 10px; color: yellow;" type="submit" value="Agregar canción">' +
+        '</form>';
+    p4b.style.display = "block";
+    p4b.style.color = "yellow";
+
+    // Capturamos el formulario en JS
+    const miFormulario = document.querySelector(".miForm");
+    // nombre input
+    const nombreInput = document.getElementById("nombre");
+    // compositor input
+    const compositorInput = document.getElementById("compositor");
+    // duracion input
+    const duracionInput = document.getElementById("duracion");
+
+    // Evento de envío del formulario
+    miFormulario.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        //guarda los valores ingresados
+        const nombre = nombreInput.value.trim().toUpperCase();
+        const compositor = compositorInput.value.trim().toUpperCase();
+        const duracion = duracionInput.value.trim();
+
+        // validar el nombre
+        let nombreCumple = false;
+        //permitir letras mayusculas y minusculas, numeros, espacios en blanco, guiones y parentesis 
+        const nombreExpresion = /^[A-Za-z0-9\s\-()]+$/;
+
+        if (nombre === "") {
+            nombreCumple = false;
+            alert("Error: Ingrese el nombre de la canción");
+        } else
+            if (nombre.match(nombreExpresion)) {
+                nombreCumple = true;
+            }
+            else {
+                nombreCumple = false;
+                nombreInput.value = "";
+                nombre.value = "";
+                alert("Error: El nombre debe estar formado por letras mayúsculas o minúsculas, números, espacios en blanco, guiones y paréntesis ");
+            }
+
+        // validar  compositor
+        let compositorCumple = false;
+
+        //permitir letras mayusculas y minusculas, numeros, espacios en blanco, guiones y parentesis 
+        if (compositor.match(nombreExpresion)) {
+            compositorCumple = true;
+        } else
+            if (compositor === "") {
+                compositorCumple = false;
+                alert("Error: Ingrese el nombre del compositor");
+            } else {
+                compositorCumple = false;
+                compositorInput.value = "";
+                compositor.value = "";
+                alert("Error: El compositor debe estar formado por letras mayusculas o minusculas, numeros, espacios en blanco, guiones y parentesis ");
+            }
+
+        // validar duracion del album
+        let duracionCumple = false;
+
+        if (duracion.length === 0) {
+            duracionCumple = false;
+            alert("Error: debe ingresar duracion del album.(EJ: 01:30 para indicar 1 hora y media");
+        } else {
+
+            //  ^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$, lo que permite horas en formato de 1 o 2 dígitos (0-23) 
+            //  seguidas por ":" y minutos en formato de 2 dígitos (00-59).
+            const formatoDuracion = /^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/;
+
+            if (formatoDuracion.test(duracion)) {
+                duracionCumple = true;
+            } else {
+                alert("Formato de duración no válido. Use hh:mm.");
+            }
+        }
+
+        if (nombreCumple && compositorCumple && duracionCumple) {
+            //datos validos: envia el form           
+            miFormulario.submit();
+            alert("Cancion agregada con con éxito.");
+        }
+    });
+}
+
+// funcion principal del ejercicio 4b 
+function ejercicio4b() {
+    p4b.style.display = "block";
+    p4b.style.color = "yellow";
+    p4b.innerHTML = '<h3>Ingresar nuevo album</h3>' +
+        '<button class="newAlbum" style=" border: solid 1px yellow;box-shadow:none;width: 100%; font-size: 0.8rem";>Agregar album</button>';
+
+    const btnNewAlbum = document.querySelector(".newAlbum");
+    //Al hacer click en btn agregar album, que se muestre el form para cada cancion
+    btnNewAlbum.addEventListener('click', cargarValidarCanciones);
+}
+btn4b.addEventListener('click', ejercicio4b);
