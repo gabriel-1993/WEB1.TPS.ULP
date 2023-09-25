@@ -147,7 +147,6 @@ function ejercicio5() {
     numAleatorio = Math.floor(Math.random() * 10) + 1;
     console.log(numAleatorio);
     let respuesta;
-    let contador = 0;
     let msj = "";
     respuesta = prompt("Vamos a adivinar un numero!, ingrese un numero entre 0 y 10 ");
     // Agregamos una comprobación para manejar el caso en que el usuario cancele el prompt.
@@ -729,14 +728,12 @@ function cargarValidarCanciones() {
 
     //Album nombre input
     const nombreAlbumInput = document.getElementById("nombreAlbum");
-
-    //guarda nombre album ingresado
+    //guarda nombre album ingresado sin espacios en mayuscula
     const nombreAlbum = nombreAlbumInput.value.trim().toUpperCase();
-
     // validar el nombre album
     let nombreAlbumCumple = false;
-    //permitir letras mayusculas y minusculas, numeros, espacios en blanco, guiones y parentesis 
 
+    //permitir letras mayusculas y minusculas, numeros, espacios en blanco, guiones y parentesis 
     const nombreExpresion = /^[A-Za-z0-9\s\-()]+$/;
 
     if (nombreAlbum.match(nombreExpresion)) {
@@ -745,32 +742,33 @@ function cargarValidarCanciones() {
         nombreAlbumCumple = false;
         nombreAlbumInput.value = "";
         nombreAlbum.value = "";
-        alert("Error: El nombre del album es obligatorio.");
-    } if (nombreAlbum.value = "") {
-        alert("Error: el nombre del album es obligatorio");
+        alert("Nombre obligatorio: puede ingresar letras mayusculas y minusculas, numeros, espacios en blanco, guiones y parentesis ");
     }
 
     // el btn agregar album va agregar los datos para la cancion , solo cuando tenga nombre el album
+    // div para agregar las canciones
     if (nombreAlbumCumple) {
 
+        // agrega form para los datos de las canciones y el div al final para ingresar canciones
         p4b.innerHTML =
             '<h3>Ingresar canciones</h3>' +
             '<form class="miForm" style="display: flex; justify-content: space-between; flex-direction: column; gap:10px;">' +
             '<label style="color: yellow; margin-right: 10px;" for="nombre">Nombre:</label>' +
-            '<input style="background-color: rgb(19, 18, 18); padding: 10px; color: yellow; margin-right: 10px;" type="text" id="nombre" name="nombre">' +
+            '<input style="width:100%;background-color: rgb(19, 18, 18); padding: 10px; color: yellow; margin-right: 10px;" type="text" id="nombre" name="nombre">' +
 
             '<label style="color: yellow; margin-right: 10px;" for="compositor">Compositor:</label>' +
-            '<input style="background-color: rgb(19, 18, 18); padding: 10px; color: yellow; margin-right: 10px;" type="text" id="compositor" name="compositor">' +
+            '<input style="width:100%;background-color: rgb(19, 18, 18); padding: 10px; color: yellow; margin-right: 10px;" type="text" id="compositor" name="compositor">' +
 
             '<label for="duracion" style="color: yellow; margin-right: 10px;">Duracion :</label>' +
-            '<input style="background-color: rgb(19, 18, 18); padding: 10px; color: yellow; margin-right: 10px;" type="text" placeholder="MM:SS 02:40" id="duracion" name="duracion">' +
-            '<buttom class="btnAgregarCancion";style="cursor: pointer;border:solid 1px yellow; background-color: rgb(19, 18, 18); padding: 10px; color: yellow;">Agregar Canción</buttom>' +
-            '<input style="cursor: pointer;border:solid 1px yellow; background-color: rgb(19, 18, 18); padding: 10px; color: yellow;" type="submit" value="Album Finalizado">' +
-            '</form>';
-
-
+            '<input style="width:100%;background-color: rgb(19, 18, 18); padding: 10px; color: yellow; margin-right: 10px;" type="text" placeholder="MM:SS 02:40" id="duracion" name="duracion">' +
+            '<buttom class="btnAgregarCancion" Cancion style="cursor: pointer;border:solid 1px yellow; background-color: rgb(19, 18, 18); padding: 10px; color: yellow;text-align:center;font-weight:500; font-size:1rem;">Agregar Canción</buttom>' +
+            '<input style="cursor: pointer;border:solid 1px yellow; background-color: rgb(19, 18, 18); padding: 10px; color: yellow;font-weight:600;font-size:1rem;" type="submit" value="Album Finalizado">' +
+            '</form>' +
+            '<div class="canciones" style="display:none; flex-direction:column;width:auto;box-shadow:none; padding:2px; margin-top:8px;border-radius:0px;";></div>';
         p4b.style.display = "block";
         p4b.style.color = "yellow";
+
+
 
         // Capturamos el formulario en JS
         const miFormulario = document.querySelector(".miForm");
@@ -783,9 +781,11 @@ function cargarValidarCanciones() {
 
         //Boton agregar cancion
         const btnAgregarCancion = document.querySelector(".btnAgregarCancion");
-        //para verificar que min tenga una cancion
-        let cantidadCanciones = 0;
-        
+
+        //div para guardar canciones dentro del p4b
+        const cancionesDiv = document.querySelector(".canciones");
+
+        //evento en el btn agregar canciones para validar los datos 
         btnAgregarCancion.addEventListener('click', function () {
             //guarda los valores ingresados
             const nombre = nombreInput.value.trim().toUpperCase();
@@ -845,17 +845,16 @@ function cargarValidarCanciones() {
                     alert("Formato de duración de la cancion no válido. Use MM:SS.");
                 }
             }
-
             if (nombreCumple && compositorCumple && duracionCumple) {
-                //datos validos: envia el form   
-                p4b.innerHTML += '<div style="width: 100%; display: flex; flex-direction: column; gap:1px; padding:4px;margin-top:8px;">' +
+                cancionesDiv.innerHTML +=
                     '<p style="padding: 2px; margin: 2px;">Nombre: ' + nombre + '</p>' +
                     '<p style="padding: 2px; margin: 2px;">Compositor: ' + compositor + '</p>' +
-                    '<p style="padding: 2px; margin: 2px;">Duración: ' + duracion + '</p>' +
-                    '</div>';
-
+                    '<p style="padding: 2px; margin: 2px; border-bottom: 1px solid yellow;">Duración: ' + duracion + '</p>';
+                cancionesDiv.style.display = "block";
+                nombreInput.value = "";
+                compositorInput.value = "";
+                duracionInput.value = "";
             }
-
         })
 
         // Evento de envío del formulario
@@ -867,68 +866,11 @@ function cargarValidarCanciones() {
             const compositor = compositorInput.value.trim().toUpperCase();
             const duracion = duracionInput.value.trim();
 
-            // validar el nombre
-            let nombreCumple = false;
-            //permitir letras mayusculas y minusculas, numeros, espacios en blanco, guiones y parentesis 
-            const nombreExpresion = /^[A-Za-z0-9\s\-()]+$/;
-
-            if (nombre === "") {
-                nombreCumple = false;
-                alert("Error: Ingrese el nombre de la canción");
-            } else
-                if (nombre.match(nombreExpresion)) {
-                    nombreCumple = true;
-                }
-                else {
-                    nombreCumple = false;
-                    nombreInput.value = "";
-                    nombre.value = "";
-                    alert("Error: El nombre debe estar formado por letras mayúsculas o minúsculas, números, espacios en blanco, guiones y paréntesis ");
-                }
-
-            // validar  compositor
-            let compositorCumple = false;
-
-            //permitir letras mayusculas y minusculas, numeros, espacios en blanco, guiones y parentesis 
-            if (compositor.match(nombreExpresion)) {
-                compositorCumple = true;
-            } else
-                if (compositor === "") {
-                    compositorCumple = false;
-                    alert("Error: Ingrese el nombre del compositor");
-                } else {
-                    compositorCumple = false;
-                    compositorInput.value = "";
-                    compositor.value = "";
-                    alert("Error: El compositor debe estar formado por letras mayusculas o minusculas, numeros, espacios en blanco, guiones y parentesis ");
-                }
-
-            // validar duracion del album
-            let duracionCumple = false;
-
-            if (duracion.length === 0) {
-                duracionCumple = false;
-                alert("Error: debe ingresar duracion del album.(EJ: 01:30 para indicar 1 hora y media");
+            if (nombre === "" && compositor === "" && duracion === "") {
+                miFormulario.submit();
+                alert("Album " + nombreAlbum +" guardado con éxito!");
             } else {
-
-                // expresion regular permite minutos desde "00" hasta "59" y segundos desde "00" hasta "59".
-                const formatoDuracion = /^([0-5][0-9]):([0-5][0-9])$/;
-
-                if (formatoDuracion.test(duracion)) {
-                    duracionCumple = true;
-                } else {
-                    alert("Formato de duración de la cancion no válido. Use MM:SS.");
-                }
-            }
-
-            if (nombreCumple && compositorCumple && duracionCumple) {
-                //datos validos: envia el form   
-                p4b.innerHTML += '<div style="width: 100%; display: flex; flex-direction: column; gap:1px; padding:4px;margin-top:8px;">' +
-                    '<p style="padding: 2px; margin: 2px;">Nombre: ' + nombre + '</p>' +
-                    '<p style="padding: 2px; margin: 2px;">Compositor: ' + compositor + '</p>' +
-                    '<p style="padding: 2px; margin: 2px;">Duración: ' + duracion + '</p>' +
-                    '</div>';
-
+                alert("Error: quedan datos sin guardar en los campos de texto")
             }
         });
     }
