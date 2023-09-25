@@ -846,14 +846,15 @@ function cargarValidarCanciones() {
                 }
             }
             if (nombreCumple && compositorCumple && duracionCumple) {
-                cancionesDiv.innerHTML +=
-                    '<p style="padding: 2px; margin: 2px;">Nombre: ' + nombre + '</p>' +
-                    '<p style="padding: 2px; margin: 2px;">Compositor: ' + compositor + '</p>' +
-                    '<p style="padding: 2px; margin: 2px; border-bottom: 1px solid yellow;">Duración: ' + duracion + '</p>';
                 cancionesDiv.style.display = "block";
                 nombreInput.value = "";
                 compositorInput.value = "";
                 duracionInput.value = "";
+                cancionesDiv.innerHTML +=
+                    '<p style="padding: 2px; margin: 2px;">Nombre: ' + nombre + '</p>' +
+                    '<p style="padding: 2px; margin: 2px;">Compositor: ' + compositor + '</p>' +
+                    '<p style="padding: 2px; margin: 2px; border-bottom: 1px solid yellow;">Duración: ' + duracion + '</p>';
+              
             }
         })
 
