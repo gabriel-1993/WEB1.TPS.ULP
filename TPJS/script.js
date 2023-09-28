@@ -379,40 +379,53 @@ btn9.addEventListener('click', ejercicio9);
 
 // 10) Realice una página que permita cargar una fecha en el formato DD-MM-YYYY y diga
 // cuántos días faltan o ya pasaron respecto del día de hoy.
-
 const btn10 = document.querySelector(".btn10");
 const p10 = document.querySelector(".p10");
+
 function ejercicio10() {
-    //fecha ingresada 
     const fechaString = prompt("Ingrese una fecha dividida por guiones: dia-mes-año 00-00-0000");
-    //guarda la fecha string,  separada(-) en un array
-    let fechaArray = fechaString.split("-");
-    //creo un tipo de dato fecha y le asigno los valores desde el array
-    let fechaDate = new Date();
-    fechaDate.setFullYear(fechaArray[2]);
-    fechaDate.setMonth(fechaArray[1] - 1);
-    fechaDate.setDate(fechaArray[0]);
 
-    let resultado = "";
+    // Validar si la entrada cumple con el formato esperado (dd-mm-yyyy)
+    const regex = /^\d{2}-\d{2}-\d{4}$/;
+    if (!regex.test(fechaString)) {
+        p10.innerHTML = "Formato de fecha incorrecto. Por favor, ingrese una fecha válida en el formato 00-00-0000.";
+        p10.style.color = "red";
+        p10.style.display = "block";
+        return;
+    }
+
+    const fechaArray = fechaString.split("-");
+    const dia = parseInt(fechaArray[0]);
+    const mes = parseInt(fechaArray[1]);
+    const año = parseInt(fechaArray[2]);
+
+    // Validar si los valores son numéricos y están en rangos válidos
+    if (isNaN(dia) || isNaN(mes) || isNaN(año) || dia < 1 || dia > 31 || mes < 1 || mes > 12 || año < 1000 || año > 9999) {
+        p10.innerHTML = "Fecha no válida. Por favor, ingrese una fecha válida.";
+        p10.style.color = "red";
+        p10.style.display = "block";
+        return;
+    }
+
+    const fechaDate = new Date();
+    fechaDate.setFullYear(año);
+    fechaDate.setMonth(mes - 1); // Restar 1 al mes ya que los meses en JavaScript van de 0 a 11.
+    fechaDate.setDate(dia);
+
     const fechaHoy = new Date();
+    let resultado = "";
+
     if (fechaDate > fechaHoy) {
-        // Calcula la diferencia en milisegundos entre las fechas
         const diferenciaMilisegundos = fechaDate - fechaHoy;
-        // Convierte la diferencia a días
         resultado = "Faltan " + Math.floor(diferenciaMilisegundos / (1000 * 60 * 60 * 24)) + " días.";
-        p10.innerHTML = resultado;
-    }
-    if (fechaDate < fechaHoy) {
-        // Calcula la diferencia en milisegundos entre las fechas
+    } else if (fechaDate < fechaHoy) {
         const diferenciaMilisegundos = fechaHoy - fechaDate;
-        // Convierte la diferencia a días
-        resultado = Math.floor(diferenciaMilisegundos / (1000 * 60 * 60 * 24));
-        p10.innerHTML = "Pasaron " + resultado + " dias.";
+        resultado = "Pasaron " + Math.floor(diferenciaMilisegundos / (1000 * 60 * 60 * 24)) + " días.";
     } else {
-        resultado = " Ingreso el dia actual. ES HOY !!!!";
-        p10.innerHTML = resultado;
+        resultado = "Ingresó el día actual. ¡ES HOY!";
     }
 
+    p10.innerHTML = resultado;
     p10.style.color = "yellow";
     p10.style.display = "block";
 }
@@ -557,7 +570,6 @@ function ejercicio2b() {
         let nombre = nombreInput.value.trim().toUpperCase();
         if (nombre === '') {
             alert('Por favor, ingresa tu nombre.');
-            nombre.focus();
             nombreCumple = false;
         }
         // La expresión /^[a-zA-Z\s]+$/ es una expresión regular para verificar
@@ -565,7 +577,6 @@ function ejercicio2b() {
         // esta negado : ! para mostrar el msj para un nom mal ingresado
         else if (!/^[a-zA-Z\s]+$/.test(nombre)) {
             alert('Error: solo puedes ingresar letras y/o espacios');
-            nombre.focus();
             nombreCumple = false;
         } else {
             // Envia el formulario si la validacion es exitosa
