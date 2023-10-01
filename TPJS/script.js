@@ -25,7 +25,7 @@ function ejercicio1() {
 
         p1.innerHTML = `Hola ${nombre}! Has vivido ${diasVividos} días hasta hoy.`;
         p1.style.color = "yellow";
-        p1.style.display="block";
+        p1.style.display = "block";
     } else {
         p1.innerHTML = "❌ Error: Datos ingresados no válidos ❌";
         p1.style.color = "red";
@@ -67,7 +67,7 @@ function ejercicio2() {
         }
         p2.innerHTML = rectangulo;
         p2.style.color = "yellow";
-        p2.style.display ="block";
+        p2.style.display = "block";
     }
 }
 
@@ -90,7 +90,7 @@ const btn3 = document.querySelector(".btn3");
 const p3 = document.querySelector(".p3");
 
 function ejercicio3() {
-    p3.innerHTML="";
+    p3.innerHTML = "";
     var item;
     var lista = ['a', 'b', 'c', '1', 'x', '9', 'd', '4'];
     for (var item of lista) {
@@ -230,7 +230,7 @@ const p7 = document.querySelector(".p7");
 const btn7 = document.querySelector(".btn7");
 
 function ejercicio7() {
-    let frases = ["Mereces lo que sueñas. -Gustavo Cerati", "Vive de instante en instante porque eso es la vida. -Facundo Cabral ", "Si estás atento al presente, el pasado no te distraerá, entonces serás siempre nuevo. -Facundo Cabral","Hechos, no palabras.", "Y...con el diario del lunes...", "Cada dia trae su propio afan.", "Consejos vendo... y para mi no tengo.","La unión hace la fuerza."];
+    let frases = ["Mereces lo que sueñas. -Gustavo Cerati", "Vive de instante en instante porque eso es la vida. -Facundo Cabral ", "Si estás atento al presente, el pasado no te distraerá, entonces serás siempre nuevo. -Facundo Cabral", "Hechos, no palabras.", "Y...con el diario del lunes...", "Cada dia trae su propio afan.", "Consejos vendo... y para mi no tengo.", "La unión hace la fuerza."];
     const indiceAleatorio = Math.floor(Math.random() * frases.length);
     p7.style.display = "block";
     p7.style.color = "yellow";
@@ -253,7 +253,7 @@ const p8 = document.querySelector(".p8");
 function ejercicio8() {
     let miArray = [];
     let suma = 0, promedio, min = Infinity, max = -Infinity;
-    
+
     for (let i = 0; i < 4; i++) {
         let num;
         while (true) {
@@ -271,7 +271,7 @@ function ejercicio8() {
                 alert("Por favor, ingrese un número entero válido.");
             }
         }
-        
+
         suma += num;
         miArray.push(num);
         if (num > max) {
@@ -315,7 +315,7 @@ const p9 = document.querySelector(".p9");
 
 function ejercicio9() {
     let persona = [];
-    
+
     // Validación para el nombre
     let resp = prompt("Ingrese su Nombre");
     while (!resp || !isNaN(resp)) {
@@ -923,7 +923,7 @@ function cargarValidarCanciones() {
                     '<p style="padding: 2px; margin: 2px;">Nombre: ' + nombre + '</p>' +
                     '<p style="padding: 2px; margin: 2px;">Compositor: ' + compositor + '</p>' +
                     '<p style="padding: 2px; margin: 2px; border-bottom: 1px solid yellow;">Duración: ' + duracion + '</p>';
-              
+
             }
         })
 
@@ -938,7 +938,7 @@ function cargarValidarCanciones() {
 
             if (nombre === "" && compositor === "" && duracion === "") {
                 miFormulario.submit();
-                alert("Album " + nombreAlbum +" guardado con éxito!");
+                alert("Album " + nombreAlbum + " guardado con éxito!");
             } else {
                 alert("Error: quedan datos sin guardar en los campos de texto")
             }
@@ -961,3 +961,88 @@ function ejercicio4b() {
     btnNewAlbum.addEventListener('click', cargarValidarCanciones);
 }
 btn4b.addEventListener('click', ejercicio4b);
+
+
+//************************************************************************************************************************************************************** */
+//************************************************************************************************************************************************************** */
+
+
+/*Consigna 5 Realice una página donde el usuario pueda cargar un contacto. El contacto de esa persona debe tener al menos un 
+teléfono y como máximo 3. Además debe ser obligatoria la carga del mail. Realice las validaciones necesarias. */
+const btn5b = document.querySelector(".btn5b");
+const p5b = document.querySelector(".p5b");
+
+function ejercicio5b() {
+    p5b.innerHTML = '<h3>Ingresar Datos</h3>' +
+        '<form class="miForm" style="display: flex; justify-content: space-between; flex-direction: column; gap:10px;">' +
+        '<label style="color: yellow; margin-right: 10px;" for="nombre">Nombre:</label>' +
+        '<input style="background-color: rgb(19, 18, 18); padding: 10px; color: yellow; margin-right: 10px;" type="text" id="nombre" name="nombre" required>' +
+
+        '<label style="color: yellow; margin-right: 10px;" for="tel1" >Telefono 1:</label>' +
+        '<input style="background-color: rgb(19, 18, 18); padding: 10px; color: yellow; margin-right: 10px;" type="text" id="tel1" placeholder="Debe ingresar 10 numeros" name="tel1">' +
+
+        '<label style="color: yellow; margin-right: 10px;" for="tel2" >Telefono 2:</label>' +
+        '<input style="background-color: rgb(19, 18, 18); padding: 10px; color: yellow; margin-right: 10px;" type="text" placeholder="Debe ingresar 10 numeros" id="tel2" name="tel2">' +
+
+        '<label style="color: yellow; margin-right: 10px;" for="tel3">Telefono 3:</label>' +
+        '<input style="background-color: rgb(19, 18, 18); padding: 10px; color: yellow; margin-right: 10px;" type="text" placeholder="Debe ingresar 10 numeros" id="tel3" name="tel3">' +
+
+        '<label for="correoElectronico" style="color: yellow; margin-right: 10px;">Correo Electrónico:</label>' +
+        '<input style="background-color: rgb(19, 18, 18); padding: 10px; color: yellow; margin-right: 10px;" type="email" id="correoElectronico" name="correoElectronico" required>' +
+
+        '<input style="background-color: rgb(19, 18, 18); padding: 10px; color: yellow;" type="submit" value="Enviar">' +
+        '</form>';
+    p5b.style.display = "block";
+    p5b.style.color = "yellow";
+
+    const miFormulario = document.querySelector(".miForm");
+    let correoCumple = false;
+    let nombreCumple = false;
+
+    let tel1Cumple = true;
+    let tel2Cumple = true;
+    let tel3Cumple = true;
+
+    miFormulario.addEventListener('submit', function (event) {
+        event.preventDefault();
+       
+        const nombre = document.getElementById("nombre").value;
+        const correo = document.getElementById("correoElectronico").value;
+        const tel1 = document.getElementById("tel1").value;
+        const tel2 = document.getElementById("tel2").value;
+        const tel3 = document.getElementById("tel3").value;
+        const correoExpresion = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+        const nombreExpresion = /^[A-Za-zÁ-ú]+$/; // Solo letras del alfabeto español
+
+        if (nombre === "" || correo === "") {
+            alert("Error: Por favor, ingrese todos los datos.");
+
+        } else if (tel1 === "" && tel2 === "" && tel3 === "") {
+            tel1Cumple = false;
+            tel2Cumple = false;
+            tel3Cumple = false;
+            alert("Error: debe ingresar al menos un telefono.");
+
+        } else if ((tel1 !== "" && tel1.length < 10) || (tel2 !== "" && tel2.length < 10) || (tel3 !== "" && tel3.length < 10)) {
+            alert("Error: Debe ingresar al menos 10 dígitos en los números de teléfono.");
+            tel1Cumple = false;
+            tel2Cumple = false;
+            tel3Cumple = false;
+        }
+
+        if (correo.includes("@") && correo.length > 5 && correo.match(correoExpresion)) {
+            correoCumple = true;
+        }
+
+        if (nombre.match(nombreExpresion)) {
+            nombreCumple = true;
+        }
+
+        if (tel1Cumple && tel2Cumple && tel3Cumple && nombreCumple && correoCumple) {
+            alert("¡Contacto agregado con éxito!");
+            miFormulario.submit();
+        }
+    });
+}
+
+btn5b.addEventListener('click', ejercicio5b);
