@@ -1062,7 +1062,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const div3 = document.querySelector(".div6_3");
     const div4 = document.querySelector(".div6_4");
     const div5 = document.querySelector(".div6_5");
-    const div6 = document.querySelector(".div6_6");
 
     const fondo = document.querySelector(".sectionGeneral");
 
@@ -1086,9 +1085,7 @@ document.addEventListener("DOMContentLoaded", () => {
         fondo.style.backgroundColor = "orange";
     });
 
-    div6.addEventListener("mouseover", function () {
-        fondo.style.backgroundColor = "#1f1f1d";
-    });
+    
     //************************************************************************************************************************************************************** */
     //************************************************************************************************************************************************************** */
 
@@ -1254,13 +1251,73 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     //Realiza una página que implemente una calculadora aritmética.
-    const div10b = document.querySelector(".div10b");
+    //cálculos aritméticos básicos, entre los que se pueden mencionar suma, resta, multiplicación, división.
+    //Asi como otras operaciones más complejas como porcentajes, raíz cuadrada, seno y coseno
 
-    function ejercicio10b(){
-        
+    const div10b = document.querySelector(".div10b");
+    const btn10b = document.querySelector(".btn10b");
+
+    function ejercicio10b() {
+        div10b.innerHTML = '<div class="divDisplay10b" <span style="border: solid 1px white; display:block "; class=numIngresado>numingresado </span><p class="pDisplay" style="border: solid 1px red"></p> </div>' +
+            '<div class="divContenedorBtns10b" style="display:flex; flex-direction:column; gap:4px; border: solid 1px white">' +
+            //primer fila de botones
+
+            '<div class="divFilaBtns">' +
+            '<button class="btnCalculadora";>+</button>' +
+            '<button class="btnCalculadora";>-</button>' +
+            '<button class="btnCalculadora";>/</button>' +
+            '<button class="btnCalculadora";>*</button > ' +
+            '<button class="btnCalculadora";>C</button > ' +
+            '</div>' +
+
+
+            //primer fila numeros
+            '<div class="divFilaBtns">' +
+            '<button class="btnCalculadora";>7</button>' +
+            '<button class="btnCalculadora";>8</button>' +
+            '<button class="btnCalculadora";>9</button>' +
+            '<button class="btnCalculadora";>COS</button>' +
+            '<button class="btnCalculadora";>CE</button > ' +
+            '</div>' +
+
+            '<div class="divFilaBtns">' +
+            '<button class="btnCalculadora";>4</button>' +
+            '<button class="btnCalculadora";>5</button>' +
+            '<button class="btnCalculadora";>6</button>' +
+            '<button class="btnCalculadora";>SEN</button>' +
+            '<button class="btnCalculadora";>&#8730;</button>' +
+
+            '</div>' +
+
+            //primer fila numeros
+            '<div class="divFilaBtns">' +
+            '<button class="btnCalculadora";>1</button>' +
+            '<button class="btnCalculadora";>2</button>' +
+            '<button class="btnCalculadora";>3</button>' +
+            '<button class="btnCalculadora";>&#8730;</button>' +
+            '<button class="btnCalculadora";>&#37</button > ' +
+            '</div>' +
+
+
+            //primer fila numeros
+            '<div class="divFilaBtns">' +
+            '<button class="btnCalculadora";>0</button>' +
+            '<button class="btnCalculadora";>.</button>' +
+            '<button class="btnCalculadora";>=</button>' +
+          
+
+            '</div>' +
+
+
+            //cierre div contenedor de botones
+            '</div>';
+        div10b.style.display = "block";
+
 
 
     }
+
+    btn10b.addEventListener('click', ejercicio10b);
 
 
     // }); final para cargar el Js luego del DOM

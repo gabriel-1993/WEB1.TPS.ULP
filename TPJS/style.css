@@ -5,7 +5,7 @@
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     list-style: none;
-    
+
 }
 
 section {
@@ -117,39 +117,39 @@ button:hover {
     border: none;
     cursor: pointer;
 }
-.div6_2{
+
+.div6_2 {
     background-color: yellow;
     box-shadow: none;
     border: none;
     cursor: pointer;
 }
-.div6_3{
+
+.div6_3 {
     background-color: gray;
     box-shadow: none;
     border: none;
     cursor: pointer;
 }
-.div6_4{
+
+.div6_4 {
     background-color: green;
     box-shadow: none;
     border: none;
     cursor: pointer;
 }
-.div6_5{
+
+.div6_5 {
     background-color: orange;
     box-shadow: none;
     border: none;
     cursor: pointer;
 }
-.div6_6{
-    background-color: #1f1f1d;
-    box-shadow: none;
-    border: none;
-    cursor: pointer;
-}
+
+
 
 /* PARTE B TITULO */
-h2{
+h2 {
     margin: 40px 0;
     color: white;
     background-color: rgb(19, 18, 18);
@@ -162,19 +162,57 @@ h2{
 }
 
 /* consigna 7b boton limpiar campos */
-.btn7bLimpiar{
+.btn7bLimpiar {
     background-color: rgb(19, 18, 18);
-     padding: 8px; 
-     color: yellow;
-     font-weight: 300;
-     font-size: 12px;
-    margin-top:8px;
+    padding: 8px;
+    color: yellow;
+    font-weight: 300;
+    font-size: 12px;
+    margin-top: 8px;
     box-shadow: none;
     border: solid 1px rgb(208, 208, 208);
     width: 100%;
 }
 
 /* consigna 9b reemplazo p por un div contenedor */
-.div9b{
+.div9b {
     border: solid 1 px yellow;
+}
+
+/* Consigna 10b display para mostrar nueros ingresados y resultado */
+.div10b {
+    width: min(100% - 500px);
+}
+
+.divDisplay10b {
+    padding: 0;
+    width: auto;
+    margin-bottom: 0px;
+}
+
+/* Consigna10b contenedor de los botones */
+.divContenedorBtns10b {
+    margin-top: 8px;
+    width: 100%;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+
+}
+
+.divFilaBtns {
+    display: flex;
+    flex-direction: row;
+    padding: 0px;
+    width: auto;
+    justify-content: space-between;}
+
+/* Consigna 10b botones calculadora */
+.btnCalculadora {
+    max-width: 70px;
+    height: 30px;
+    padding: 0px 8px;
+    letter-spacing: 0px;
+    box-shadow: none;
+    background-color: red;
 }
