@@ -90,7 +90,7 @@ button {
     width: 25%;
     height: 45px;
     padding: 10px 0;
-    background-color: rgb(19, 18, 18);
+    background-color: rgb(210, 210, 30);
     border-radius: 4px;
     font-size: 1rem;
     letter-spacing: 1px;
@@ -101,7 +101,7 @@ button {
 
 button:hover {
     border: solid yellow 1px;
-    color: yellow;
+    color: black;
 }
 
 /* Consigna 6 colores para cada cuadro */
@@ -172,4 +172,9 @@ h2{
     box-shadow: none;
     border: solid 1px rgb(208, 208, 208);
     width: 100%;
+}
+
+/* consigna 9b reemplazo p por un div contenedor */
+.div9b{
+    border: solid 1 px yellow;
 }
