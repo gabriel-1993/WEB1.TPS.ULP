@@ -16,7 +16,7 @@
   }
   button{
     width:95%;
-    padding: 0
+    padding: 0;
   } 
   .pResultado{
     width: 95%;
@@ -36,4 +36,18 @@
     padding: 0;
    }
   
+/* Consigna 10b display para mostrar nueros ingresados y resultado */
+.div10b {
+  width: min(100%, 350px);
+  padding: 0;
 }
+
+.divFilaBtns5 {
+  gap: 5px;
+}
+/* Consigna 10b botones calculadora */
+.btnCalculadora {
+  width: 19%;
+  height: 30px;
+} 
+};

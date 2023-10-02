@@ -1258,8 +1258,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const btn10b = document.querySelector(".btn10b");
 
     function ejercicio10b() {
-        div10b.innerHTML = '<div class="divDisplay10b" <span style="border: solid 1px white; display:block "; class=numIngresado>numingresado </span><p class="pDisplay" style="border: solid 1px red"></p> </div>' +
-            '<div class="divContenedorBtns10b" style="display:flex; flex-direction:column; gap:4px; border: solid 1px white">' +
+        div10b.innerHTML = '<div class="divDisplay10b"> <span style="border: solid 1px white; display:block "; class=numIngresado>numingresado </span><p class="pDisplay" style="border: solid 1px red"></p> </div>' +
+            '<div class="divContenedorBtns10b" style="display:flex; flex-direction:column; gap:4px; ">' +
             //primer fila de botones
 
             '<div class="divFilaBtns">' +
@@ -1300,10 +1300,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             //primer fila numeros
-            '<div class="divFilaBtns">' +
+            '<div class="divFilaBtns5">' +
             '<button class="btnCalculadora";>0</button>' +
             '<button class="btnCalculadora";>.</button>' +
-            '<button class="btnCalculadora";>=</button>' +
+            '<button class="btnCalculadoraIgual";>=</button>' +
           
 
             '</div>' +
