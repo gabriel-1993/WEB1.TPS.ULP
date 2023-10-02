@@ -141,6 +141,12 @@ button:hover {
     border: none;
     cursor: pointer;
 }
+.div6_6{
+    background-color: #1f1f1d;
+    box-shadow: none;
+    border: none;
+    cursor: pointer;
+}
 
 /* PARTE B TITULO */
 h2{
@@ -155,3 +161,15 @@ h2{
     color: yellow;
 }
 
+/* consigna 7b boton limpiar campos */
+.btn7bLimpiar{
+    background-color: rgb(19, 18, 18);
+     padding: 8px; 
+     color: yellow;
+     font-weight: 300;
+     font-size: 12px;
+    margin-top:8px;
+    box-shadow: none;
+    border: solid 1px rgb(208, 208, 208);
+    width: 100%;
+}
