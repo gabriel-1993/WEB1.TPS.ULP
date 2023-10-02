@@ -1045,3 +1045,40 @@ function ejercicio5b() {
 }
 
 btn5b.addEventListener('click', ejercicio5b);
+
+//************************************************************************************************************************************************************** */
+//************************************************************************************************************************************************************** */
+
+//Realiza una página que muestre cinco cuadrados de diferentes colores. Cuando el ratón pase por encima de alguno de ellos
+// el color de fondo será del color de relleno del cuadrado.
+
+const div1 = document.querySelector(".div6_1");
+const div2 = document.querySelector(".div6_2");
+const div3 = document.querySelector(".div6_3");
+const div4 = document.querySelector(".div6_4");
+const div5 = document.querySelector(".div6_5");
+
+const fondo = document.querySelector(".sectionGeneral");
+
+div1.addEventListener("mouseover", function () {
+    fondo.style.backgroundColor = "blue";
+});
+
+div2.addEventListener("mouseover", function () {
+    fondo.style.backgroundColor = "yellow";
+});
+
+div3.addEventListener("mouseover", function () {
+    fondo.style.backgroundColor = "gray";
+});
+
+div4.addEventListener("mouseover", function () {
+    fondo.style.backgroundColor = "green";
+});
+
+div5.addEventListener("mouseover", function () {
+    fondo.style.backgroundColor = "orange";
+});
+
+
+
