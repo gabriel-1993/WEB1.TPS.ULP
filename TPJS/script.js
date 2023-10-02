@@ -974,7 +974,8 @@ const p5b = document.querySelector(".p5b");
 
 function ejercicio5b() {
     p5b.innerHTML = '<h3>Ingresar Datos</h3>' +
-        '<form class="miForm" style="display: flex; justify-content: space-between; flex-direction: column; gap:10px;">' +
+    // agrego novalidate para validarlo a travez de js y mostrar msj personalizados.
+        '<form novalidate class="miForm" style="display: flex; justify-content: space-between; flex-direction: column; gap:10px;">' +
         '<label style="color: yellow; margin-right: 10px;" for="nombre">Nombre:</label>' +
         '<input style="background-color: rgb(19, 18, 18); padding: 10px; color: yellow; margin-right: 10px;" type="text" id="nombre" name="nombre" required>' +
 
@@ -996,16 +997,10 @@ function ejercicio5b() {
     p5b.style.color = "yellow";
 
     const miFormulario = document.querySelector(".miForm");
-    let correoCumple = false;
-    let nombreCumple = false;
-
-    let tel1Cumple = true;
-    let tel2Cumple = true;
-    let tel3Cumple = true;
 
     miFormulario.addEventListener('submit', function (event) {
         event.preventDefault();
-       
+
         const nombre = document.getElementById("nombre").value;
         const correo = document.getElementById("correoElectronico").value;
         const tel1 = document.getElementById("tel1").value;
@@ -1014,33 +1009,37 @@ function ejercicio5b() {
         const correoExpresion = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
         const nombreExpresion = /^[A-Za-zÁ-ú]+$/; // Solo letras del alfabeto español
 
-        if (nombre === "" || correo === "") {
-            alert("Error: Por favor, ingrese todos los datos.");
+        let errores = [];
 
-        } else if (tel1 === "" && tel2 === "" && tel3 === "") {
-            tel1Cumple = false;
-            tel2Cumple = false;
-            tel3Cumple = false;
-            alert("Error: debe ingresar al menos un telefono.");
-
-        } else if ((tel1 !== "" && tel1.length < 10) || (tel2 !== "" && tel2.length < 10) || (tel3 !== "" && tel3.length < 10)) {
-            alert("Error: Debe ingresar al menos 10 dígitos en los números de teléfono.");
-            tel1Cumple = false;
-            tel2Cumple = false;
-            tel3Cumple = false;
+        if (nombre === "") {
+            errores.push("Ingrese un nombre.");
         }
 
-        if (correo.includes("@") && correo.length > 5 && correo.match(correoExpresion)) {
-            correoCumple = true;
+        if (correo === "") {
+            errores.push("Ingrese un correo electrónico.");
+        } else if (!correo.includes("@") || !correo.match(correoExpresion)) {
+            errores.push("El correo electrónico ingresado no es válido.");
         }
 
-        if (nombre.match(nombreExpresion)) {
-            nombreCumple = true;
+        if (tel1 === "" && tel2 === "" && tel3 === "") {
+            errores.push("Debe ingresar al menos un número de teléfono.");
+        } else {
+            if ((tel1 !== "" && tel1.length !== 10) || (tel2 !== "" && tel2.length !== 10) || (tel3 !== "" && tel3.length !== 10)) {
+                errores.push("Debe ingresar al menos 10 dígitos en los números de teléfono.");
+            }
         }
 
-        if (tel1Cumple && tel2Cumple && tel3Cumple && nombreCumple && correoCumple) {
-            alert("¡Contacto agregado con éxito!");
+        if (!nombre.match(nombreExpresion)) {
+            errores.push("El nombre solo debe contener letras.");
+        }
+
+        if (errores.length === 0) {
+            p5b.style.color = "green";
+            p5b.innerHTML = "¡Contacto agregado con éxito!";
             miFormulario.submit();
+        } else {
+            p5b.style.color = "red";
+            p5b.innerHTML = "Errores:<br>" + errores.join("<br>");
         }
     });
 }
